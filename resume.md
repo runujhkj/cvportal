@@ -1,14 +1,14 @@
 ---
-title: "Jack [Last Name] — Resume"
+title: "Jeffrey \"Jack\" Hannon Jr. — Resume"
 ---
 
-# Jack [Last Name]
+# Jack Hannon
 
 Linux / HPC Systems Administration · Automation · Diagnostics  
 
-Email: you@example.com  
-GitHub: https://github.com/<username>  
-Website: https://<username>.github.io/cvportal/
+Email: runujhkj@icloud.com  
+GitHub: https://github.com/runujhkj 
+Website: https://runujhkj.github.io/cvportal/
 
 ---
 
@@ -31,7 +31,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ## Experience
 
 ### Computer Specialist I — High-Performance Computing Center  
-*Mississippi State University, Starkville, MS* · YYYY–Present
+*Mississippi State University, Starkville, MS* · 2022–Present
 
 - Maintain and troubleshoot compute nodes across multiple Slurm partitions, including drain handling, node reboots, and hardware checks.
 - Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams; run test jobs and document behavioral changes.
@@ -39,13 +39,17 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Support researchers and internal staff with job failures, environment issues, and general HPC usage questions.
 
 ### Research Computing Administrator (Freelance / Contract)  
-*Remote* · YYYY–YYYY
+*Remote* · 2023–2024
 
 - Assisted small research groups with Linux server setup, configuration, and basic automation for compute/storage.
 - Helped design simple, reproducible configurations for lab environments that could be rebuilt from documentation and scripts.
 
-### Previous IT / Support Roles  
-*Various organizations* · YYYY–YYYY
+### GCP Data Engineer - Tata Consultancy Services
+*Remote* · 2021-2022
+
+
+### Senior Intern - Center for Cyber Innovation 
+*Mississippi State University, Starkville, MS* · 2020–2021
 
 - Provided technical support for end users and internal staff, including OS troubleshooting, basic scripting, and system maintenance.
 - Contributed to basic documentation and small internal tools that reduced repeat support requests.
