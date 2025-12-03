@@ -47,6 +47,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 ### GCP Data Engineer - Tata Consultancy Services
 *Remote* · 2021-2022
+
 - Gained practical familiarity with Google Cloud Platform services related to storage, compute, and big data processing.
 - Explored large-scale data ingestion and transformation using Apache Hadoop and PySpark.
 - Applied MapReduce principles to simulated data pipelines and ETL-style transformations
@@ -84,6 +85,13 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 - Designing a command-line pipeline where `rantify <audio> <character>` runs lip-sync analysis, animates a simple avatar in Blender, and renders to MP4.
 - Focused on low-friction expressive output without needing to be on camera directly.
+
+---
+
+## Certifications/Awards
+
+### CompTIA A+
+**Awarded:** 11/2025
 
 ---
 
