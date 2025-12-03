@@ -8,12 +8,12 @@ title = "Jack — Linux & HPC Systems"
 [menu]
   [[menu.main]]
     name = "Projects"
-    url  = "/projects/"
+    url  = "projects/"
     weight = 1
 
   [[menu.main]]
     name = "Resume"
-    url  = "/resume/"
+    url  = "resume/"
     weight = 2
 [pagination]
   pagerSize = 10
