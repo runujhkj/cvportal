@@ -1,0 +1,119 @@
+/* Page + base typography */
+
+@page {
+  margin: 1in;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: #111827;
+  background: #ffffff;
+}
+
+/* Layout */
+
+.resume {
+  max-width: 7.5in;
+  margin: 0 auto;
+}
+
+header,
+section {
+  margin-bottom: 0.75rem;
+}
+
+/* Name + header */
+
+h1 {
+  font-size: 20pt;
+  margin-bottom: 0.1rem;
+}
+
+.header-subtitle {
+  font-size: 11pt;
+  color: #4b5563;
+}
+
+.header-contact {
+  font-size: 10pt;
+  color: #4b5563;
+}
+
+.header-contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Headings */
+
+h2 {
+  font-size: 12pt;
+  margin: 0.75rem 0 0.2rem;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+h3 {
+  font-size: 11pt;
+  margin: 0.4rem 0 0.1rem;
+}
+
+/* Text */
+
+p {
+  margin: 0.15rem 0;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Lists */
+
+ul {
+  margin: 0.1rem 0 0.2rem 1.1rem;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.1rem;
+}
+
+/* Utility classes (we'll use them in the pandoc output via headings/structure) */
+
+.role-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11pt;
+}
+
+.role-title {
+  font-weight: 600;
+}
+
+.role-meta {
+  font-size: 10pt;
+  color: #6b7280;
+}
+
+/* Print optimizations */
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

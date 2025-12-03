@@ -43,10 +43,13 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 - Assisted small research groups with Linux server setup, configuration, and basic automation for compute/storage.
 - Helped design simple, reproducible configurations for lab environments that could be rebuilt from documentation and scripts.
+- Operated independently with full responsibility for uptime, environment consistency, and recovery.
 
 ### GCP Data Engineer - Tata Consultancy Services
 *Remote* · 2021-2022
-
+- Gained practical familiarity with Google Cloud Platform services related to storage, compute, and big data processing.
+- Explored large-scale data ingestion and transformation using Apache Hadoop and PySpark.
+- Applied MapReduce principles to simulated data pipelines and ETL-style transformations
 
 ### Senior Intern - Center for Cyber Innovation 
 *Mississippi State University, Starkville, MS* · 2020–2021
@@ -87,4 +90,4 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ## Education
 
 ### B.S. in Computer Science  
-Mississippi State University · YYYY
+Mississippi State University · 2021
