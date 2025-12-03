@@ -1,7 +1,6 @@
 baseURL = "https://runujhkj.github.io/cvportal/"
 languageCode = "en-us"
 title = "Jack — Linux & HPC Systems"
-paginate = 10
 
 [params]
   subtitle = "Linux/HPC systems admin · Automation · Cluster tooling"
@@ -16,3 +15,5 @@ paginate = 10
     name = "Resume"
     url  = "/resume/"
     weight = 2
+[pagination]
+  pagerSize = 10
