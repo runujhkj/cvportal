@@ -1,7 +1,6 @@
 baseURL = "https://runujhkj.github.io/cvportal/"
 languageCode = "en-us"
 title = "Jack — Linux & HPC Systems"
-theme = ""
 paginate = 10
 
 [params]
