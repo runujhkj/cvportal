@@ -15,5 +15,10 @@ title = "Jack — Linux & HPC Systems"
     name = "Resume"
     url  = "resume/"
     weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url  = "about/"
+    weight = 3
 [pagination]
   pagerSize = 10
