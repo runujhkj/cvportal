@@ -1,0 +1,53 @@
+{{ define "main" }}
+<article class="content">
+  <h1>{{ .Title }}</h1>
+
+  <p class="meta">
+    {{ with .Params.status }}<span class="badge">{{ . }}</span>{{ end }}
+    {{ with .Params.tech }}
+      <span class="meta-tech"><strong>Tech:</strong> {{ delimit . ", " }}</span>
+    {{ end }}
+  </p>
+
+  {{ with .Params.problem }}
+    <h2>Problem it addresses</h2>
+    <p>{{ . }}</p>
+  {{ end }}
+
+  {{ with .Params.approach }}
+    <h2>Approach</h2>
+    <p>{{ . }}</p>
+  {{ end }}
+
+  {{ with .Params.current }}
+    <h2>Current capabilities</h2>
+    <ul>
+      {{ range . }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ with .Params.next }}
+    <h2>Next milestones</h2>
+    <ul>
+      {{ range . }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ if .Content }}
+    <h2>Notes</h2>
+    {{ .Content }}
+  {{ end }}
+
+  {{ with .Params.repo }}
+    <p><strong>Repository:</strong> <a href="{{ . }}">{{ . }}</a></p>
+  {{ else }}
+    {{ with .Params.repo_status }}
+      <p><strong>Repository:</strong> {{ . }}</p>
+    {{ end }}
+  {{ end }}
+</article>
+{{ end }}

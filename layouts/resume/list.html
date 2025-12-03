@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="content">
+  <h1>Resume</h1>
+  <p>
+    You can download a PDF copy of my current CV here:
+  </p>
+  <p>
+    <a class="btn" href="{{ "/resume/jack-resume.pdf" | relURL }}" target="_blank" rel="noopener">
+      Download PDF
+    </a>
+  </p>
+
+  {{ with .Content }}
+    <h2>Overview</h2>
+    {{ . }}
+  {{ end }}
+</section>
+{{ end }}
