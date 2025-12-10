@@ -16,3 +16,15 @@ I’m happiest when I can:
 - Leave behind scripts and documentation that a future version of me can understand at a glance.
 
 If you’re looking at this site because of a CV or application, the short version is: I like infrastructure, I like automation, and I try to keep my tools honest about what actually works today and what’s still in progress.
+
+## Other things I make
+
+I also build small creative projects when something catches my attention:
+
+- experimental videos built from the Rantology avatar pipeline  
+- short written pieces and micro-fiction  
+- language notes from studying العربية / 日本語 / русский / español  
+- occasional photography, usually in places that look slightly unreal  
+
+These aren’t part of my technical work, but they shape how I think:  
+systems, language, structure, and the way small rules create larger behavior.
