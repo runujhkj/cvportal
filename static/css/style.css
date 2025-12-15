@@ -67,6 +67,22 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.site-title-text {
+  display: inline-block;
+}
+
 /* Main */
 
 .site-main {
