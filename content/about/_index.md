@@ -14,29 +14,17 @@ On my own time I build similar things at smaller scale: a scripted Kubernetes la
 
 <div class="about-photo-grid">
 
-  <figure class="about-figure">
-    <img
-      src="{{< staticurl "img/about/me.jpg" >}}"
-      alt="Photo of me"
-      class="about-photo"
-      loading="lazy"
-    >
-    <figcaption class="about-caption">
-      Caption: This is what I look like.
-    </figcaption>
-  </figure>
+{{< photocard
+    src="img/about/me.jpg"
+    alt="Photo of me"
+    caption="Caption: What I look like."
+>}}
 
-  <figure class="about-figure">
-    <img
-      src="{{< staticurl "img/about/we.jpg" >}}"
-      alt="Photo of me and my wife"
-      class="about-photo"
-      loading="lazy"
-    >
-    <figcaption class="about-caption">
-      Caption: This is what I look like standing by the most important thing in my life..
-    </figcaption>
-  </figure>
+{{< photocard
+    src="img/about/we.jpg"
+    alt="Photo of me and my wife"
+    caption="Caption: What I look like standing next to the most important thing in my life."
+>}}
 
 </div>
 

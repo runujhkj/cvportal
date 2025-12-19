@@ -1,0 +1,20 @@
+{{- $src := (.Get "src") -}}
+{{- $alt := (.Get "alt") | default "" -}}
+{{- $cap := (.Get "caption") | default "" -}}
+{{- if not $src -}}
+  {{ errorf "photocard shortcode requires src= (page: %s)" .Page.File.Path }}
+{{- end -}}
+
+<figure class="about-figure">
+  <img
+    src="{{ $src | relURL }}"
+    alt="{{ $alt }}"
+    class="about-photo"
+    loading="lazy"
+  >
+  {{- if $cap -}}
+    <figcaption class="about-caption">{{ $cap }}</figcaption>
+  {{- else -}}
+    <figcaption class="about-caption">&nbsp;</figcaption>
+  {{- end -}}
+</figure>
