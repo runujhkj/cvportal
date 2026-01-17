@@ -6,6 +6,7 @@ title: "Jeffrey \"Jack\" Hannon Jr. — Resume"
 
 Linux / HPC Systems Administration · Automation · Diagnostics  
 
+Phone: +1 (251)-753-1915
 Email: runujhkj@icloud.com  
 GitHub: https://github.com/runujhkj 
 Website: https://runujhkj.github.io/cvportal/
@@ -46,7 +47,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Operated independently with full responsibility for uptime, environment consistency, and recovery.
 
 ### GCP Data Engineer - Tata Consultancy Services
-*Remote* · 2021-2022
+*Remote* · 2021–2022
 
 - Gained practical familiarity with Google Cloud Platform services related to storage, compute, and big data processing.
 - Explored large-scale data ingestion and transformation using Apache Hadoop and PySpark.
