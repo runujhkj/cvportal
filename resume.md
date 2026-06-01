@@ -63,11 +63,18 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 ## Selected Projects
 
-### Language Quiz (PySide6)
-**Tech:** Python, PySide6, JSON
+### bad — HPC Administration Terminal UI
+**Tech:** Python, curses, PTY, SLURM, NHC, iDRAC/RACADM, pytest
 
-- Built a desktop vocabulary drill tool driven by JSON dictionaries to practice multiple languages and scripts (e.g., العربية, 日本語, русский, español).
-- Implemented a simple UI with instant feedback and a debug mode to validate dictionary entries and catch malformed data.
+- Built a persistent interactive TUI replacing ad-hoc shell workflows for day-to-day cluster administration across large node sets
+- Integrates SLURM, NHC, and Dell iDRAC RACADM into a single stateful session with live output capture, drainlist diff tracking, and cached sudo credentials
+- ~8,500 lines across ~90 modules with 100+ pytest files including PTY simulation for integration-level testing
+
+### NodeBoard — Cluster Triage Dashboard (prototype)
+**Tech:** Python, Flask, Slurm
+
+- Implemented a small Flask-based dashboard that reads node status snapshots from existing CLI tools and visualizes drains, down nodes, and partitions.
+- Intended for use inside a constrained environment (no external dependencies) to give operators a faster view of node health.
 
 ### vkube — Local Kubernetes Lab (in progress)
 **Tech:** Bash, QEMU, Ansible, Kubernetes
@@ -75,11 +82,25 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Designing a reproducible lab environment using QEMU VMs and Ansible to spin up multi-node Kubernetes clusters with predictable networking.
 - Goal is a single command (`vkube-up`) to create a small lab and `vkube-down` to tear it all back to a clean state.
 
-### NodeBoard — Cluster Triage Dashboard (prototype)
-**Tech:** Python, Flask, Slurm
+### netcon — iOS Network Coverage Mapper
+**Tech:** Swift, SwiftUI, CoreLocation, CoreMotion, CoreData, MapKit, CoreGraphics
 
-- Implemented a small Flask-based dashboard that reads node status snapshots from existing CLI tools and visualizes drains, down nodes, and partitions.
-- Intended for use inside a constrained environment (no external dependencies) to give operators a faster view of node health.
+- Built a self-contained iOS app that passively measures Wi-Fi and cellular quality (latency, loss, throughput) as the user moves and renders results as a zoomable heatmap overlay
+- Implemented a custom MapKit tile rasteriser with manual Web-Mercator projection, zoom-adaptive power-of-2 grid snapping, and confidence-based opacity blending
+- Zero third-party dependencies; covers background location scheduling, Core Data persistence, and multi-format export (zip, CSV, GeoJSON)
+
+### myvm — Apple Silicon VM Manager
+**Tech:** Python, PySide6, QEMU, QMP, HVF, cloud-init
+
+- Desktop GUI for full VM lifecycle management on Apple Silicon using QEMU with HVF acceleration and macosvm for macOS guests
+- Drives QEMU over QMP Unix socket for graceful ACPI shutdown; auto-manages SSH config blocks so VMs are immediately reachable by name after first boot
+- Generates cloud-init NoCloud seed ISOs with Jinja-templated user-data for reproducible guest provisioning
+
+### Language Quiz (PySide6)
+**Tech:** Python, PySide6, JSON
+
+- Built a desktop vocabulary drill tool driven by JSON dictionaries to practice multiple languages and scripts (e.g., العربية, 日本語, русский, español).
+- Implemented a simple UI with instant feedback and a debug mode to validate dictionary entries and catch malformed data.
 
 ### Rantify — Avatar-Based Rant Pipeline (early design)
 **Tech:** Blender, Python, Rhubarb, FFmpeg
