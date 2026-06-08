@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -9,7 +9,6 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -42,9 +41,8 @@ https://runujhkj.github.io/cvportal/</p>
 environment.<br />
 Day-to-day work includes Slurm-driven cluster operations, hardware
 triage, firmware/BIOS coordination with vendors, and automation with
-shell and Python. I build small tools (dashboards, scripts, lab
-environments) to reduce repetitive operational pain and make cluster
-behavior more visible.</p>
+shell and Python. I build tools to reduce repetitive operational pain
+and make cluster behavior more visible.</p>
 <hr />
 <h2 id="skills">Skills</h2>
 <p><strong>Systems &amp; HPC:</strong> Linux (Debian, Rocky, Ubuntu),
@@ -63,9 +61,9 @@ Specialist I — High-Performance Computing Center</h3>
 <p><em>Mississippi State University, Starkville, MS</em> ·
 2022–Present</p>
 <ul>
-<li>Maintain and troubleshoot compute nodes across multiple Slurm
-partitions, including drain handling, node reboots, and hardware
-checks.</li>
+<li>Maintain and troubleshoot compute nodes across clusters ranging from
+200 to 1,800 nodes, including drain handling, node reboots, hardware
+diagnosis, and vendor RMA coordination.</li>
 <li>Coordinate firmware, BIOS, and OFED upgrades with Dell and internal
 teams; run test jobs and document behavioral changes.</li>
 <li>Write and maintain diagnostic scripts (bash, Python) to surface node
@@ -79,23 +77,19 @@ Computing Administrator (Freelance / Contract)</h3>
 <ul>
 <li>Assisted small research groups with Linux server setup,
 configuration, and basic automation for compute/storage.</li>
-<li>Helped design simple, reproducible configurations for lab
-environments that could be rebuilt from documentation and scripts.</li>
+<li>Designed simple, reproducible configurations for lab environments
+that could be rebuilt from documentation and scripts.</li>
 <li>Operated independently with full responsibility for uptime,
 environment consistency, and recovery.</li>
 </ul>
-<h3 id="gcp-data-engineer---tata-consultancy-services">GCP Data Engineer
-- Tata Consultancy Services</h3>
+<h3 id="gcp-data-engineer-tata-consultancy-services">GCP Data Engineer —
+Tata Consultancy Services</h3>
 <p><em>Remote</em> · 2021–2022</p>
 <ul>
-<li>Gained practical familiarity with Google Cloud Platform services
-related to storage, compute, and big data processing.</li>
-<li>Explored large-scale data ingestion and transformation using Apache
-Hadoop and PySpark.</li>
-<li>Applied MapReduce principles to simulated data pipelines and
-ETL-style transformations</li>
+<li>Short-term contract role; gained practical exposure to GCP
+compute/storage and Hadoop-based data pipelines.</li>
 </ul>
-<h3 id="senior-intern---center-for-cyber-innovation">Senior Intern -
+<h3 id="senior-intern-center-for-cyber-innovation">Senior Intern —
 Center for Cyber Innovation</h3>
 <p><em>Mississippi State University, Starkville, MS</em> · 2020–2021</p>
 <ul>
@@ -107,45 +101,62 @@ reduced repeat support requests.</li>
 </ul>
 <hr />
 <h2 id="selected-projects">Selected Projects</h2>
-<h3 id="language-quiz-pyside6">Language Quiz (PySide6)</h3>
-<p><strong>Tech:</strong> Python, PySide6, JSON</p>
+<h3 id="bad-hpc-administration-terminal-ui">bad — HPC Administration
+Terminal UI</h3>
+<p><strong>Tech:</strong> Python, curses, PTY, SLURM, NHC, iDRAC/RACADM,
+pytest</p>
 <ul>
-<li>Built a desktop vocabulary drill tool driven by JSON dictionaries to
-practice multiple languages and scripts (e.g., العربية, 日本語, русский,
-español).</li>
-<li>Implemented a simple UI with instant feedback and a debug mode to
-validate dictionary entries and catch malformed data.</li>
+<li>Built a persistent interactive TUI replacing ad-hoc shell workflows
+for day-to-day cluster administration across large node sets</li>
+<li>Integrates SLURM, NHC, and Dell iDRAC RACADM into a single stateful
+session with live output capture, drainlist diff tracking, and cached
+sudo credentials</li>
+<li>~8,500 lines across ~90 modules with 100+ pytest files including PTY
+simulation for integration-level testing</li>
 </ul>
-<h3 id="vkube-local-kubernetes-lab-in-progress">vkube — Local Kubernetes
-Lab (in progress)</h3>
-<p><strong>Tech:</strong> Bash, QEMU, Ansible, Kubernetes</p>
+<h3 id="home-network-lab-vplan-stepfam">Home Network Lab — vplan &amp;
+stepfam</h3>
+<p><strong>Tech:</strong> Linux, WireGuard/NordVPN, iptables, Pi-hole,
+step-ca, Docker, Caddy, bash, Python</p>
 <ul>
-<li>Designing a reproducible lab environment using QEMU VMs and Ansible
-to spin up multi-node Kubernetes clusters with predictable
-networking.</li>
-<li>Goal is a single command (<code>vkube-up</code>) to create a small
-lab and <code>vkube-down</code> to tear it all back to a clean
-state.</li>
+<li>Designed and maintain a multi-segment home network with a dual-NIC
+Debian Linux router providing LAN-wide VPN tunneling with selective
+per-device bypass via iptables mangle and policy routing tables</li>
+<li>Built vplan: a device-management toolkit generating Pi-hole DHCP
+reservations and DNS records idempotently from a single source-of-truth
+config, with full DNS postcheck validation</li>
+<li>Built stepfam: a two-part PKI toolkit managing a private ACME CA
+(step-ca in Docker) with inventory-driven cert issuance, SSH-based
+deployment, trust-chain distribution, and CA rotation — integrated with
+Caddy for automatic TLS on self-hosted services</li>
 </ul>
-<h3 id="nodeboard-cluster-triage-dashboard-prototype">NodeBoard —
-Cluster Triage Dashboard (prototype)</h3>
-<p><strong>Tech:</strong> Python, Flask, Slurm</p>
+<h3 id="netcon-ios-network-coverage-mapper">netcon — iOS Network
+Coverage Mapper</h3>
+<p><strong>Tech:</strong> Swift, SwiftUI, CoreLocation, CoreMotion,
+CoreData, MapKit, CoreGraphics</p>
 <ul>
-<li>Implemented a small Flask-based dashboard that reads node status
-snapshots from existing CLI tools and visualizes drains, down nodes, and
-partitions.</li>
-<li>Intended for use inside a constrained environment (no external
-dependencies) to give operators a faster view of node health.</li>
+<li>Built a self-contained iOS app that passively measures Wi-Fi and
+cellular quality (latency, loss, throughput) as the user moves and
+renders results as a zoomable heatmap overlay</li>
+<li>Implemented a custom MapKit tile rasteriser with manual Web-Mercator
+projection, zoom-adaptive power-of-2 grid snapping, and confidence-based
+opacity blending</li>
+<li>Zero third-party dependencies; covers background location
+scheduling, Core Data persistence, and multi-format export (zip, CSV,
+GeoJSON)</li>
 </ul>
-<h3 id="rantify-avatar-based-rant-pipeline-early-design">Rantify —
-Avatar-Based Rant Pipeline (early design)</h3>
-<p><strong>Tech:</strong> Blender, Python, Rhubarb, FFmpeg</p>
+<h3 id="myvm-apple-silicon-vm-manager">myvm — Apple Silicon VM
+Manager</h3>
+<p><strong>Tech:</strong> Python, PySide6, QEMU, QMP, HVF,
+cloud-init</p>
 <ul>
-<li>Designing a command-line pipeline where
-<code>rantify &lt;audio&gt; &lt;character&gt;</code> runs lip-sync
-analysis, animates a simple avatar in Blender, and renders to MP4.</li>
-<li>Focused on low-friction expressive output without needing to be on
-camera directly.</li>
+<li>Desktop GUI for full VM lifecycle management on Apple Silicon using
+QEMU with HVF acceleration and macosvm for macOS guests</li>
+<li>Drives QEMU over QMP Unix socket for graceful ACPI shutdown;
+auto-manages SSH config blocks so VMs are immediately reachable by name
+after first boot</li>
+<li>Generates cloud-init NoCloud seed ISOs with Jinja-templated
+user-data for reproducible guest provisioning</li>
 </ul>
 <hr />
 <h2 id="certificationsawards">Certifications/Awards</h2>

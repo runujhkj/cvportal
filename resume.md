@@ -16,7 +16,7 @@ Website: https://runujhkj.github.io/cvportal/
 ## Summary
 
 Linux-focused systems administrator working in a university HPC environment.  
-Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmware/BIOS coordination with vendors, and automation with shell and Python. I build small tools (dashboards, scripts, lab environments) to reduce repetitive operational pain and make cluster behavior more visible.
+Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmware/BIOS coordination with vendors, and automation with shell and Python. I build tools to reduce repetitive operational pain and make cluster behavior more visible.
 
 ---
 
@@ -34,7 +34,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ### Computer Specialist I — High-Performance Computing Center  
 *Mississippi State University, Starkville, MS* · 2022–Present
 
-- Maintain and troubleshoot compute nodes across multiple Slurm partitions, including drain handling, node reboots, and hardware checks.
+- Maintain and troubleshoot compute nodes across clusters ranging from 200 to 1,800 nodes, including drain handling, node reboots, hardware diagnosis, and vendor RMA coordination.
 - Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams; run test jobs and document behavioral changes.
 - Write and maintain diagnostic scripts (bash, Python) to surface node state, drain reasons, file system usage, and other health signals.
 - Support researchers and internal staff with job failures, environment issues, and general HPC usage questions.
@@ -43,17 +43,15 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 *Remote* · 2023–2024
 
 - Assisted small research groups with Linux server setup, configuration, and basic automation for compute/storage.
-- Helped design simple, reproducible configurations for lab environments that could be rebuilt from documentation and scripts.
+- Designed simple, reproducible configurations for lab environments that could be rebuilt from documentation and scripts.
 - Operated independently with full responsibility for uptime, environment consistency, and recovery.
 
-### GCP Data Engineer - Tata Consultancy Services
+### GCP Data Engineer — Tata Consultancy Services  
 *Remote* · 2021–2022
 
-- Gained practical familiarity with Google Cloud Platform services related to storage, compute, and big data processing.
-- Explored large-scale data ingestion and transformation using Apache Hadoop and PySpark.
-- Applied MapReduce principles to simulated data pipelines and ETL-style transformations
+- Short-term contract role; gained practical exposure to GCP compute/storage and Hadoop-based data pipelines.
 
-### Senior Intern - Center for Cyber Innovation 
+### Senior Intern — Center for Cyber Innovation  
 *Mississippi State University, Starkville, MS* · 2020–2021
 
 - Provided technical support for end users and internal staff, including OS troubleshooting, basic scripting, and system maintenance.
@@ -70,17 +68,12 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Integrates SLURM, NHC, and Dell iDRAC RACADM into a single stateful session with live output capture, drainlist diff tracking, and cached sudo credentials
 - ~8,500 lines across ~90 modules with 100+ pytest files including PTY simulation for integration-level testing
 
-### NodeBoard — Cluster Triage Dashboard (prototype)
-**Tech:** Python, Flask, Slurm
+### Home Network Lab — vplan & stepfam
+**Tech:** Linux, WireGuard/NordVPN, iptables, Pi-hole, step-ca, Docker, Caddy, bash, Python
 
-- Implemented a small Flask-based dashboard that reads node status snapshots from existing CLI tools and visualizes drains, down nodes, and partitions.
-- Intended for use inside a constrained environment (no external dependencies) to give operators a faster view of node health.
-
-### vkube — Local Kubernetes Lab (in progress)
-**Tech:** Bash, QEMU, Ansible, Kubernetes
-
-- Designing a reproducible lab environment using QEMU VMs and Ansible to spin up multi-node Kubernetes clusters with predictable networking.
-- Goal is a single command (`vkube-up`) to create a small lab and `vkube-down` to tear it all back to a clean state.
+- Designed and maintain a multi-segment home network with a dual-NIC Debian Linux router providing LAN-wide VPN tunneling with selective per-device bypass via iptables mangle and policy routing tables
+- Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation
+- Built stepfam: a two-part PKI toolkit managing a private ACME CA (step-ca in Docker) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation — integrated with Caddy for automatic TLS on self-hosted services
 
 ### netcon — iOS Network Coverage Mapper
 **Tech:** Swift, SwiftUI, CoreLocation, CoreMotion, CoreData, MapKit, CoreGraphics
@@ -95,18 +88,6 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Desktop GUI for full VM lifecycle management on Apple Silicon using QEMU with HVF acceleration and macosvm for macOS guests
 - Drives QEMU over QMP Unix socket for graceful ACPI shutdown; auto-manages SSH config blocks so VMs are immediately reachable by name after first boot
 - Generates cloud-init NoCloud seed ISOs with Jinja-templated user-data for reproducible guest provisioning
-
-### Language Quiz (PySide6)
-**Tech:** Python, PySide6, JSON
-
-- Built a desktop vocabulary drill tool driven by JSON dictionaries to practice multiple languages and scripts (e.g., العربية, 日本語, русский, español).
-- Implemented a simple UI with instant feedback and a debug mode to validate dictionary entries and catch malformed data.
-
-### Rantify — Avatar-Based Rant Pipeline (early design)
-**Tech:** Blender, Python, Rhubarb, FFmpeg
-
-- Designing a command-line pipeline where `rantify <audio> <character>` runs lip-sync analysis, animates a simple avatar in Blender, and renders to MP4.
-- Focused on low-friction expressive output without needing to be on camera directly.
 
 ---
 
