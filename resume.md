@@ -22,10 +22,10 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 ## Skills
 
-**Systems & HPC:** Linux (Debian, Rocky, Ubuntu), Slurm, Lustre, OFED, BIOS/firmware coordination  
-**Automation & Scripting:** Bash/Zsh, Python, basic C, Ansible, Git  
-**Tooling & Platforms:** ReFrame, Kubernetes (lab environments), QEMU/KVM, GitHub/Gitea  
-**Other:** Documentation, incident triage, vendor communication, internal tooling
+**Systems & Infrastructure:** Linux (Debian, Rocky, Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware coordination  
+**Networking & Security:** nftables, WireGuard, policy routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME, mTLS)  
+**Automation & Development:** Python (curses, PTY, PySide6, pytest), Bash/Zsh, Swift/SwiftUI, Ansible, Git  
+**Platforms & Tooling:** Kubernetes, cloud-init, Forgejo/GitHub, ReFrame
 
 ---
 
@@ -42,14 +42,9 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ### Research Computing Administrator (Freelance / Contract)  
 *Remote* · 2023–2024
 
-- Assisted small research groups with Linux server setup, configuration, and basic automation for compute/storage.
-- Designed simple, reproducible configurations for lab environments that could be rebuilt from documentation and scripts.
-- Operated independently with full responsibility for uptime, environment consistency, and recovery.
-
-### GCP Data Engineer — Tata Consultancy Services  
-*Remote* · 2021–2022
-
-- Short-term contract role; gained practical exposure to GCP compute/storage and Hadoop-based data pipelines.
+- Maintained a bioinformatics software stack (~40 packages) supporting genomics and methylation sequencing workflows for a research group at Fox Chase Cancer Center.
+- Installed and built tools including Bowtie2, bwa-meth, MethylDackel, Picard, BUSCO, Augustus, HOMER, MaxQuant, and others using Spack where possible and manual source builds elsewhere.
+- Resolved dependency conflicts and build failures often working from incomplete or broken upstream documentation; sole technical contact for stack issues throughout.
 
 ### Senior Intern — Center for Cyber Innovation  
 *Mississippi State University, Starkville, MS* · 2020–2021
