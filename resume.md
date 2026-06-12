@@ -25,7 +25,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 **Systems & Infrastructure:** Linux (Debian, Rocky, Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware coordination  
 **Networking & Security:** nftables, WireGuard, policy routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME, mTLS)  
 **Automation & Development:** Python (curses, PTY, PySide6, pytest), Bash/Zsh, Swift/SwiftUI, Ansible, Git  
-**Platforms & Tooling:** Kubernetes, cloud-init, Forgejo/GitHub, ReFrame
+**Platforms & Tooling:** Kubernetes, cloud-init, Forgejo/GitHub, ReFrame, LLM coding tools (Claude Code, Copilot)
 
 ---
 
