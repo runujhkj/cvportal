@@ -1,0 +1,83 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Content }}<div class="content">{{ . }}</div>{{ end }}
+
+{{ $statuses := slice }}
+{{ $techs := slice }}
+{{ range .Pages }}
+  {{ with .Params.status }}{{ $statuses = $statuses | append . }}{{ end }}
+  {{ range .Params.tech }}{{ $techs = $techs | append . }}{{ end }}
+{{ end }}
+{{ $statuses = $statuses | uniq }}
+{{ $techs = $techs | uniq | sort }}
+
+<div class="filter-bar">
+  <div class="filter-group">
+    <span class="filter-label">Status</span>
+    <button class="filter-btn active" data-filter="status" data-value="all">All</button>
+    {{ range $statuses }}
+      <button class="filter-btn" data-filter="status" data-value="{{ . }}">{{ . }}</button>
+    {{ end }}
+  </div>
+  <div class="filter-group">
+    <span class="filter-label">Tech</span>
+    <button class="filter-btn active" data-filter="tech" data-value="all">All</button>
+    {{ range $techs }}
+      <button class="filter-btn" data-filter="tech" data-value="{{ . }}">{{ . }}</button>
+    {{ end }}
+  </div>
+</div>
+
+<div class="card-grid" id="project-grid">
+  {{ range .Pages }}
+    {{ $status := .Params.status }}
+    {{ $badgeClass := "" }}
+    {{ if eq $status "Active" }}{{ $badgeClass = "badge-active" }}
+    {{ else if eq $status "In development" }}{{ $badgeClass = "badge-in-development" }}
+    {{ else if eq $status "Prototype" }}{{ $badgeClass = "badge-prototype" }}
+    {{ else if eq $status "Submitted" }}{{ $badgeClass = "badge-submitted" }}
+    {{ end }}
+    <article class="card"
+      data-status="{{ $status }}"
+      data-tech="{{ delimit .Params.tech "," }}">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with $status }}<span class="badge {{ $badgeClass }}">{{ . }}</span>{{ end }}
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      {{ with .Params.tech }}
+        <p class="meta"><strong>Tech:</strong> {{ delimit . ", " }}</p>
+      {{ end }}
+    </article>
+  {{ end }}
+</div>
+
+<p class="filter-empty" id="filter-empty" hidden>No projects match the current filter.</p>
+
+<script>
+(function () {
+  const active = { status: 'all', tech: 'all' };
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('#project-grid .card');
+    let visible = 0;
+    cards.forEach(card => {
+      const statusMatch = active.status === 'all' || card.dataset.status === active.status;
+      const techMatch = active.tech === 'all' || card.dataset.tech.split(',').includes(active.tech);
+      const show = statusMatch && techMatch;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    document.getElementById('filter-empty').hidden = visible > 0;
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.filter;
+      active[group] = btn.dataset.value;
+      document.querySelectorAll(`.filter-btn[data-filter="${group}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+})();
+</script>
+{{ end }}

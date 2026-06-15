@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}">
+  <meta property="og:description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}">
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body>

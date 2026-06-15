@@ -1,6 +1,7 @@
 ---
 title: "vplan — VPN-LAN Router Architecture"
-status: "Long-running systems project"
+status: "Active"
+featured: true
 summary: "A full home-LAN architecture built around a Debian-based VPN router with nftables, Pi-hole, WireGuard/OpenVPN, DHCP reservations, per-device VPN bypassing, and internal service discovery."
 tech: ["Debian", "nftables", "WireGuard", "OpenVPN", "Pi-hole", "dnsmasq", "systemd-networkd"]
 problem: "I needed a LAN where every device’s traffic path is explicit and controllable: defaulting to NordVPN, allowing per-device bypassing, avoiding DNS leaks, and ensuring remote access from hostile networks — all without using opaque vendor tooling or iptables leftovers."

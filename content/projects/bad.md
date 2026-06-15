@@ -1,6 +1,7 @@
 ---
 title: "bad — HPC Administration Terminal UI"
-status: "In active use"
+status: "Active"
+featured: true
 summary: "A persistent interactive TUI for day-to-day SLURM cluster administration — replacing ad-hoc shell one-liners with a stateful session that keeps context across repeated operations on the same node sets."
 tech: ["Python", "curses", "PTY", "SLURM", "NHC", "iDRAC/RACADM", "pytest"]
 problem: "Day-to-day HPC sysadmin involves dozens of repeated operations across large node sets — drain tracking, health checks, BIOS queries, fix dispatch, boot watching — all previously done with separate shell one-liners that share no state and produce inconsistent output."

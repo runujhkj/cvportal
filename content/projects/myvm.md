@@ -1,6 +1,7 @@
 ---
 title: "myvm — Lightweight macOS VM Launcher"
-status: "In active development"
+status: "In development"
+featured: true
 summary: "A PySide6-based GUI for launching QEMU virtual machines on macOS with YAML-defined profiles, overlay disks, logs, and QMP sockets."
 tech: ["Python", "PySide6", "QEMU", "macOS"]
 problem: "I needed a quick, reproducible way to launch VM profiles on macOS without maintaining dozens of shell scripts."

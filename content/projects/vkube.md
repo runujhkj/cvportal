@@ -1,6 +1,6 @@
 ---
 title: "vkube — Local Kubernetes Lab"
-status: "In active development"
+status: "In development"
 summary: "A scripted local Kubernetes environment using QEMU and Ansible, tuned for repeatable HPC-style experiments."
 tech: ["QEMU", "Kubernetes", "Ansible", "Linux"]
 problem: "I need a reproducible lab where I can spin up and tear down multi-node Kubernetes clusters that resemble real HPC/network constraints, without depending on cloud credits or external services."

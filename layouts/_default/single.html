@@ -3,7 +3,15 @@
   <h1>{{ .Title }}</h1>
 
   <p class="meta">
-    {{ with .Params.status }}<span class="badge">{{ . }}</span>{{ end }}
+    {{ with .Params.status }}
+      {{ $badgeClass := "" }}
+      {{ if eq . "Active" }}{{ $badgeClass = "badge-active" }}
+      {{ else if eq . "In development" }}{{ $badgeClass = "badge-in-development" }}
+      {{ else if eq . "Prototype" }}{{ $badgeClass = "badge-prototype" }}
+      {{ else if eq . "Submitted" }}{{ $badgeClass = "badge-submitted" }}
+      {{ end }}
+      <span class="badge {{ $badgeClass }}">{{ . }}</span>
+    {{ end }}
     {{ with .Params.tech }}
       <span class="meta-tech"><strong>Tech:</strong> {{ delimit . ", " }}</span>
     {{ end }}

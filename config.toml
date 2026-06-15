@@ -20,5 +20,15 @@ title = "Jack — Linux & HPC Systems"
     name = "About"
     url  = "about/"
     weight = 3
+
+  [[menu.main]]
+    name = "Now"
+    url  = "now/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Contact"
+    url  = "contact/"
+    weight = 5
 [pagination]
   pagerSize = 10
