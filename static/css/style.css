@@ -261,6 +261,26 @@ a:hover {
   margin-top: 1rem;
 }
 
+.filter-select {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+.filter-select:hover {
+  border-color: var(--accent);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
 .meta,
 .meta-tech {
   font-size: 0.85rem;

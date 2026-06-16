@@ -3,13 +3,22 @@
 {{ with .Content }}<div class="content">{{ . }}</div>{{ end }}
 
 {{ $statuses := slice }}
-{{ $techs := slice }}
+{{ $techCount := dict }}
 {{ range .Pages }}
   {{ with .Params.status }}{{ $statuses = $statuses | append . }}{{ end }}
-  {{ range .Params.tech }}{{ $techs = $techs | append . }}{{ end }}
+  {{ range .Params.tech }}
+    {{ $count := index $techCount . | default 0 }}
+    {{ $techCount = merge $techCount (dict . (add $count 1)) }}
+  {{ end }}
 {{ end }}
 {{ $statuses = $statuses | uniq }}
-{{ $techs = $techs | uniq | sort }}
+{{ $techs := slice }}
+{{ range $tech, $count := $techCount }}
+  {{ if ge $count 2 }}
+    {{ $techs = $techs | append $tech }}
+  {{ end }}
+{{ end }}
+{{ $techs = $techs | sort }}
 
 <div class="filter-bar">
   <div class="filter-group">
@@ -21,10 +30,12 @@
   </div>
   <div class="filter-group">
     <span class="filter-label">Tech</span>
-    <button class="filter-btn active" data-filter="tech" data-value="all">All</button>
-    {{ range $techs }}
-      <button class="filter-btn" data-filter="tech" data-value="{{ . }}">{{ . }}</button>
-    {{ end }}
+    <select class="filter-select" id="tech-select">
+      <option value="all">All</option>
+      {{ range $techs }}
+        <option value="{{ . }}">{{ . }}</option>
+      {{ end }}
+    </select>
   </div>
 </div>
 
@@ -78,6 +89,14 @@
       applyFilters();
     });
   });
+
+  const techSelect = document.getElementById('tech-select');
+  if (techSelect) {
+    techSelect.addEventListener('change', () => {
+      active.tech = techSelect.value;
+      applyFilters();
+    });
+  }
 })();
 </script>
 {{ end }}

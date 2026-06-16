@@ -2,7 +2,7 @@
 title: "NodeBoard — Cluster Triage Dashboard"
 status: "Prototype"
 summary: "A small internal web dashboard that visualizes node states from Slurm and related tools for faster triage."
-tech: ["Python", "Flask", "Slurm", "Linux"]
+tech: ["Python", "Flask", "SLURM", "Linux"]
 problem: "Scanning raw Slurm and monitoring output across hundreds of nodes makes it easy to miss patterns in failures and drains."
 approach: "A Flask-based dashboard that pulls in data from existing CLI tooling (e.g., drainlist scripts), summarizes node health, and surfaces changes in state over time."
 current:
