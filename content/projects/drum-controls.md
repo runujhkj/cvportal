@@ -1,5 +1,6 @@
 ---
 title: "Drum Controls — Generative Music Engine"
+forgejo_repo: "drumcontrols"
 status: "In development"
 summary: "A Python/PySide6 desktop app that maps drum pad input (MIDI or keyboard) to stochastic musical playback via FluidSynth — producing structured-random music rather than literal drum sounds."
 tech: ["Python", "PySide6", "MIDI", "FluidSynth"]
