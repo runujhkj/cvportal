@@ -27,6 +27,44 @@
     <p>{{ . }}</p>
   {{ end }}
 
+  {{ $projectMedia := .Params.media | default slice }}
+  {{ $mediaDir := printf "static/img/projects/%s" .File.TranslationBaseName }}
+  {{ if fileExists $mediaDir }}
+    {{ range readDir $mediaDir }}
+      {{ if not .IsDir }}
+        {{ $extension := lower (path.Ext .Name) }}
+        {{ if in (slice ".avif" ".gif" ".jpeg" ".jpg" ".png" ".webp") $extension }}
+          {{ $projectMedia = $projectMedia | append (dict "src" (printf "/img/projects/%s/%s" $.File.TranslationBaseName .Name) "alt" (printf "%s screenshot" $.Title)) }}
+        {{ else if in (slice ".mp4" ".webm") $extension }}
+          {{ $projectMedia = $projectMedia | append (dict "src" (printf "/img/projects/%s/%s" $.File.TranslationBaseName .Name) "type" "video") }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ with $projectMedia }}
+    <section class="project-media" aria-label="Project media">
+      <h2>In use</h2>
+      <div class="project-media-grid">
+        {{ range . }}
+          <figure class="project-media-item">
+            {{ if eq .type "video" }}
+              <video controls preload="metadata"{{ with .poster }} poster="{{ . | relURL }}"{{ end }}>
+                <source src="{{ .src | relURL }}"{{ with .mime }} type="{{ . }}"{{ end }}>
+                Your browser does not support embedded video. <a href="{{ .src | relURL }}">Download the recording</a>.
+              </video>
+            {{ else }}
+              <a href="{{ .src | relURL }}" target="_blank" rel="noopener">
+                <img src="{{ .src | relURL }}" alt="{{ .alt | default "Project screenshot" }}" loading="lazy">
+              </a>
+            {{ end }}
+            {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          </figure>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
   {{ with .Params.current }}
     <h2>Current capabilities</h2>
     <ul>

@@ -50,7 +50,7 @@
     {{ end }}
     <article class="card"
       data-status="{{ $status }}"
-      data-tech="{{ delimit .Params.tech "," }}">
+      data-tech="{{ delimit (.Params.tech | default slice) "," }}">
       <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       {{ with $status }}<span class="badge {{ $badgeClass }}">{{ . }}</span>{{ end }}
       {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}

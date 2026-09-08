@@ -36,6 +36,33 @@ This writes `static/resume/jack-resume.html` using `static/resume/resume.css`.
 If you want a PDF, the current workflow is to open the generated HTML and print
 to PDF via the browser (no automated target is configured).
 
+## Project Screenshots and Recordings
+
+Project pages automatically show supported screenshots and short recordings
+dropped in `static/img/projects/<project-file-name>/`. The project file name is
+the Markdown file name without `.md`: for example, `myvm.md` uses
+`static/img/projects/myvm/`, and `language-quiz.md` uses
+`static/img/projects/language-quiz/`.
+
+```yaml
+# Optional: add captions, custom alt text, or a video poster through front matter.
+media:
+  - src: "/img/projects/myvm/launcher.png"
+    alt: "myvm launcher showing configured virtual machines"
+    caption: "VM profiles and runtime state in the launcher."
+  - type: "video"
+    src: "/img/projects/bad/node-triage.mp4"
+    mime: "video/mp4"
+    poster: "/img/projects/bad/node-triage-poster.png"
+    caption: "A short node-triage workflow."
+```
+
+Automatically discovered files may use the following extensions: `avif`, `gif`,
+`jpeg`, `jpg`, `png`, `webp`, `mp4`, and `webm`. Use the optional front matter
+above only when a caption, custom alt text, or video poster matters. Media is
+not rendered at all when neither the directory nor front matter provides media,
+so unfinished projects remain clean.
+
 ## Deployment
 CI runs on pushes to `main` and deploys to GitHub Pages using the workflow in
 `.github/workflows/hugo.yml`.
