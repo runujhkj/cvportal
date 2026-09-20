@@ -42,14 +42,9 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 ### Research Computing Administrator (Freelance / Contract)
 *Remote* · 2023–2024
 
-- Sole administrator for a ~40-package Spack/source-built bioinformatics stack supporting genomics and methylation sequencing workflows for a research group at Fox Chase Cancer Center.
-
-### Senior Intern — Center for Cyber Innovation
-*Mississippi State University, Starkville, MS* · 2020–2021
-
-- Technical support and scripting assistance for internal staff; contributed to small internal tools and documentation.
-
----
+- Lead administrator and sole technical owner of the software environment for a genomics research group at Fox Chase Cancer Center, working directly with a small team of researchers.
+- Built and maintained a ~40-package bioinformatics stack using Spack, with manual source builds where Spack couldn't cover a tool; resolved dependency conflicts and build failures, often from incomplete upstream documentation.
+- Documented build procedures so environments could be rebuilt, and kept the stack current across upstream releases while also maintaining legacy versions of software for needed workflows.
 
 ## Selected Projects
 
