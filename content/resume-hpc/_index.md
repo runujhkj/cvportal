@@ -23,7 +23,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 **HPC & Systems:** Slurm, Lustre, OFED, NHC, Dell iDRAC/RACADM, BIOS/firmware, RMA workflow, Linux (Rocky, Debian, Ubuntu)  
 **Automation:** Python, Bash, Ansible, Git, pytest, ReFrame  
-**Networking:** DNS/DHCP (dnsmasq, Pi-hole), nftables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
+**Networking:** DNS/DHCP (dnsmasq, Pi-hole), iptables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
 **Other:** QEMU/KVM, Docker, cloud-init
 
 ---
@@ -56,7 +56,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 - ~8,500 lines across ~90 modules with 100+ pytest files including PTY simulation for integration-level testing.
 
 ### Home Network / Infrastructure Automation
-**Tech:** Linux, WireGuard, nftables, dnsmasq, Pi-hole, step-ca, Docker, Python, Bash
+**Tech:** Linux, WireGuard, iptables, dnsmasq, Pi-hole, step-ca, Docker, Python, Bash
 
 - Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation.
 - Built stepfam: a PKI toolkit managing a private ACME CA (step-ca) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation, integrated with Caddy for automatic TLS on self-hosted services.

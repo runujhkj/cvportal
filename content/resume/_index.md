@@ -16,7 +16,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ## Skills
 
 **Systems & Infrastructure:** Linux (Debian, Rocky, Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware coordination  
-**Networking & Security:** nftables, WireGuard, policy routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME, mTLS)  
+**Networking & Security:** iptables, WireGuard, policy routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME, mTLS)  
 **Automation & Development:** Python (curses, PTY, PySide6, pytest), Bash/Zsh, Swift/SwiftUI, Ansible, Git  
 **Platforms & Tooling:** Kubernetes, cloud-init, Forgejo/GitHub, ReFrame, LLM coding tools (Claude Code, Copilot)
 
@@ -59,7 +59,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - ~8,500 lines across ~90 modules with 100+ pytest files including PTY simulation for integration-level testing
 
 ### Home Network Lab — vplan & stepfam
-**Tech:** Linux, WireGuard/NordVPN, nftables, Pi-hole, step-ca, Docker, Caddy, bash, Python
+**Tech:** Linux, WireGuard/NordVPN, iptables, Pi-hole, step-ca, Docker, Caddy, bash, Python
 
 - Designed and maintain a multi-segment home network with a dual-NIC Debian Linux router providing LAN-wide VPN tunneling with selective per-device bypass via policy routing tables
 - Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation

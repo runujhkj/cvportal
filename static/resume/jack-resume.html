@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
+  <meta name="generator" content="pandoc 3.10.2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Jeffrey “Jack” Hannon Jr. — Resume</title>
   <style>
@@ -10,8 +10,12 @@
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -48,13 +52,13 @@ and make cluster behavior more visible.</p>
 <p><strong>Systems &amp; Infrastructure:</strong> Linux (Debian, Rocky,
 Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware
 coordination<br />
-<strong>Networking &amp; Security:</strong> nftables, WireGuard, policy
+<strong>Networking &amp; Security:</strong> iptables, WireGuard, policy
 routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME,
 mTLS)<br />
 <strong>Automation &amp; Development:</strong> Python (curses, PTY,
 PySide6, pytest), Bash/Zsh, Swift/SwiftUI, Ansible, Git<br />
 <strong>Platforms &amp; Tooling:</strong> Kubernetes, cloud-init,
-Forgejo/GitHub, ReFrame</p>
+Forgejo/GitHub, ReFrame, LLM coding tools (Claude Code, Copilot)</p>
 <hr />
 <h2 id="experience">Experience</h2>
 <h3
@@ -63,14 +67,20 @@ Specialist I — High-Performance Computing Center</h3>
 <p><em>Mississippi State University, Starkville, MS</em> ·
 2022–Present</p>
 <ul>
-<li>Maintain and troubleshoot compute nodes across clusters ranging from
-200 to 1,800 nodes, including drain handling, node reboots, hardware
-diagnosis, and vendor RMA coordination.</li>
+<li>Maintain and troubleshoot compute nodes across 4 Slurm clusters
+ranging from 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes):
+drain handling, node reboots, hardware diagnosis, and vendor RMA
+coordination, averaging 10–20 hardware failures per month.</li>
 <li>Coordinate firmware, BIOS, and OFED upgrades with Dell and internal
-teams; run test jobs and document behavioral changes.</li>
+teams, including IB adapter firmware managed through OpenManage
+Enterprise; run test jobs and document behavioral changes.</li>
 <li>Write and maintain diagnostic scripts (bash, Python) to surface node
-state, drain reasons, file system usage, and other health signals.</li>
-<li>Support researchers and internal staff with job failures,
+state, drain reasons, Lustre file system usage, and other health
+signals.</li>
+<li>Built and use <code>bad</code>, a personal terminal UI for daily
+node triage; its output is regularly shared with coworkers for analysis
+and tracing.</li>
+<li>Support roughly 5,000 researchers and staff with job failures,
 environment issues, and general HPC usage questions.</li>
 </ul>
 <h3 id="research-computing-administrator-freelance-contract">Research
@@ -86,6 +96,9 @@ possible and manual source builds elsewhere.</li>
 <li>Resolved dependency conflicts and build failures often working from
 incomplete or broken upstream documentation; sole technical contact for
 stack issues throughout.</li>
+<li>Documented build procedures so environments could be rebuilt, and
+kept the stack current across upstream releases while maintaining legacy
+versions needed by existing workflows.</li>
 </ul>
 <h3 id="senior-intern-center-for-cyber-innovation">Senior Intern —
 Center for Cyber Innovation</h3>
