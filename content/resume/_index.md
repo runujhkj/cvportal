@@ -24,8 +24,8 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 **Systems & Infrastructure:** Linux (Debian, Rocky, Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware coordination  
 **Networking & Security:** iptables, WireGuard, policy routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME, mTLS)  
-**Automation & Development:** Python (curses, PTY, PySide6, pytest), Bash/Zsh, Swift/SwiftUI, Ansible, Git  
-**Platforms & Tooling:** Kubernetes, cloud-init, Forgejo/GitHub, ReFrame, LLM coding tools (Claude Code, Copilot)
+**Automation & Development:** Python (curses, PTY, PySide6, pytest), Bash/Zsh, Ansible, Git  
+**Platforms & Tooling:** cloud-init, Forgejo/GitHub, ReFrame, LLM coding tools (Claude Code, Copilot)
 
 ---
 
@@ -47,12 +47,6 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Installed and built tools including Bowtie2, bwa-meth, MethylDackel, Picard, BUSCO, Augustus, HOMER, MaxQuant, and others using Spack where possible and manual source builds elsewhere.
 - Resolved dependency conflicts and build failures often working from incomplete or broken upstream documentation; sole technical contact for stack issues throughout.
 - Documented build procedures so environments could be rebuilt, and kept the stack current across upstream releases while maintaining legacy versions needed by existing workflows.
-
-### Senior Intern — Center for Cyber Innovation  
-*Mississippi State University, Starkville, MS* · 2020–2021
-
-- Provided technical support for end users and internal staff, including OS troubleshooting, basic scripting, and system maintenance.
-- Contributed to basic documentation and small internal tools that reduced repeat support requests.
 
 ---
 

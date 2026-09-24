@@ -5,7 +5,7 @@ resume:
 	"$(CHROME)" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="$(CURDIR)/static/resume/jack-resume.pdf" "file://$(CURDIR)/static/resume/jack-resume.html" 2>/dev/null
 
 resume-hpc:
-	cd static/resume && pandoc ../../resume-hpc.md -o jack-resume-hpc.pdf --standalone --from markdown -V geometry:margin=0.75in -V fontsize=10pt -M title=""
+	cd static/resume && pandoc ../../resume-hpc.md -o jack-resume-hpc.pdf --standalone --from markdown -V geometry:margin=0.6in -V fontsize=10pt -M title="" -H ../../pandoc/resume-hpc.tex
 
 serve:
 	hugo server --port 1313

@@ -6,18 +6,11 @@ title: "Resume (HPC Systems)"
 
 Linux / HPC Systems Engineering · Slurm · Lustre · Automation
 
-Phone: +1 (251)-753-1915  
-Email: runujhkj@icloud.com  
-GitHub: https://github.com/runujhkj  
-Website: https://runujhkj.github.io/cvportal/
-
----
++1 (251)-753-1915 · runujhkj@icloud.com · github.com/runujhkj · runujhkj.github.io/cvportal
 
 ## Summary
 
-Systems administrator with four years operating HPC clusters across four Slurm deployments — 96 to 1,800 nodes — on Rocky Linux, with Lustre parallel filesystems and Dell iDRAC/OFED hardware management. Day-to-day scope spans node triage, drain management, firmware and BIOS coordination, IB fabric and OFED upgrades, and vendor RMA at fleet scale. Maintains Python and Bash tooling for fleet visibility, automated health assessment, and operational workflow reduction.
-
----
+Systems administrator with four years operating HPC clusters across four Slurm deployments — 96 to 1,800 nodes — on Rocky Linux, with Lustre parallel filesystems and Dell iDRAC/OFED hardware management. Day-to-day scope spans node triage, drain management, firmware and BIOS coordination, OFED and IB adapter firmware upgrades, and vendor RMA at fleet scale. Maintains Python and Bash tooling for fleet visibility, automated health assessment, and operational workflow reduction.
 
 ## Skills
 
@@ -26,18 +19,16 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 **Networking:** DNS/DHCP (dnsmasq, Pi-hole), iptables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
 **Other:** QEMU/KVM, Docker, cloud-init
 
----
-
 ## Experience
 
 ### Computer Specialist I — High-Performance Computing Center
 *Mississippi State University, Starkville, MS* · 2022–Present
 
 - Administer and triage compute nodes across 4 Slurm clusters ranging from 96 to 1,800 nodes (16 GPU nodes, 16 bigmem nodes) under Rocky Linux; routine work includes drain management, hardware diagnosis, node reboots, and vendor RMA coordination.
-- Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams; manage IB fabric firmware for OME-administered cards; run validation jobs and document behavioral changes.
+- Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams, including IB adapter firmware managed through OpenManage Enterprise; run validation jobs and document behavioral changes.
 - Maintain Python and Bash tooling to surface Slurm state, drain reasons, Lustre filesystem usage, and node health signals across the fleet.
 - Built and maintain `bad`, a Python TUI used daily for personal node triage, integrating Slurm, NHC, and iDRAC/RACADM into a single session with live output capture and drainlist tracking.
-- Support approximately 5000 researchers and staff; handle roughly 10-20 hardware failure events per month.
+- Support approximately 5,000 researchers and staff; handle roughly 10–20 hardware failure events per month.
 
 ### Research Computing Administrator (Freelance / Contract)
 *Remote* · 2023–2024
@@ -48,20 +39,13 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 ## Selected Projects
 
-### bad — HPC Administration Terminal UI
-**Tech:** Python, curses, PTY, Slurm, NHC, iDRAC/RACADM, pytest
-
-- Persistent interactive TUI replacing ad-hoc shell workflows for day-to-day cluster administration across large node sets.
-- Integrates Slurm, NHC, and Dell iDRAC RACADM into a single stateful session with live output capture, drainlist diff tracking, and cached sudo credentials.
-- ~8,500 lines across ~90 modules with 100+ pytest files including PTY simulation for integration-level testing.
+**bad — HPC Administration Terminal UI** (Python, curses, PTY, pytest): ~8,500 lines across ~90 modules, with 100+ pytest files including PTY simulation for integration-level testing.
 
 ### Home Network / Infrastructure Automation
 **Tech:** Linux, WireGuard, iptables, dnsmasq, Pi-hole, step-ca, Docker, Python, Bash
 
 - Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation.
 - Built stepfam: a PKI toolkit managing a private ACME CA (step-ca) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation, integrated with Caddy for automatic TLS on self-hosted services.
-
----
 
 ## Certifications / Education
 
