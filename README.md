@@ -4,15 +4,16 @@ Static personal site built with Hugo. Content lives in Markdown, templates in Hu
 layouts, and assets in `static/`. The site deploys to GitHub Pages via CI.
 
 ## Requirements
-- Hugo (CI uses `0.119.0`, extended build).
-- Pandoc (for resume HTML generation).
+- Hugo (CI pins `0.162.1`).
+- Pandoc with a LaTeX engine (resume PDFs), and Google Chrome (prints the general resume's HTML to PDF).
 
 ## Project Structure
 - `content/`: Site content in Markdown (projects, about, resume).
 - `layouts/`: Hugo templates and shortcodes.
 - `static/`: Static assets (CSS, images, resume artifacts).
 - `public/`: Generated site output (do not edit by hand).
-- `resume.md`: Source for resume export.
+- `resume.md`, `resume-hpc.md`: symlinks to `content/resume/_index.md` and `content/resume-hpc/_index.md`, the single source for each resume variant.
+- `scripts/`: `scan_projects.py` (find project pages to add or update) and `collect_stats.py` (Forgejo repo stats for the deploy workflow).
 
 ## Development
 Run the local server with live reload:
@@ -26,23 +27,34 @@ hugo --minify
 ```
 
 ## Resume Workflow
-Generate HTML from the Markdown source:
+Each resume variant is one Markdown file under `content/`: Hugo renders it on the
+site, and pandoc builds the downloadable copy from it through the root symlink.
+Edit the file under `content/` (or the symlink; they are the same file), then:
+
 ```bash
-make resume
+make resume       # static/resume/jack-resume.html and jack-resume.pdf (Chrome prints the HTML)
+make resume-hpc   # static/resume/jack-resume-hpc.pdf (pandoc + LaTeX)
 ```
 
-This writes `static/resume/jack-resume.html` using `static/resume/resume.css`.
+Commit the regenerated files under `static/resume/`; the site links to them.
 
-If you want a PDF, the current workflow is to open the generated HTML and print
-to PDF via the browser (no automated target is configured).
+## Finding Stale or Missing Project Pages
+```bash
+make scan
+```
+
+Lists repos under `~/projects` with recent activity, authorship, and whether a
+project page exists or has fallen behind the repo. Set `FORGEJO_TOKEN` to also
+list Forgejo repos that are not cloned locally. A page whose file name differs
+from its repo sets `forgejo_repo:` in front matter.
 
 ## Project Screenshots and Recordings
 
 Project pages automatically show supported screenshots and short recordings
 dropped in `static/img/projects/<project-file-name>/`. The project file name is
 the Markdown file name without `.md`: for example, `myvm.md` uses
-`static/img/projects/myvm/`, and `language-quiz.md` uses
-`static/img/projects/language-quiz/`.
+`static/img/projects/myvm/`, and `langquiz.md` uses
+`static/img/projects/langquiz/`.
 
 ```yaml
 # Optional: add captions, custom alt text, or a video poster through front matter.
@@ -66,6 +78,11 @@ so unfinished projects remain clean.
 ## Deployment
 CI runs on pushes to `main` and deploys to GitHub Pages using the workflow in
 `.github/workflows/hugo.yml`.
+
+`.forgejo/workflows/deploy.yml` is the planned path from the LAN Forgejo instance
+(`fed.home.vplan`): a self-hosted runner collects project repo stats into
+`data/project_stats.json`, then pushes to GitHub. It needs the runner registered
+plus `FORGEJO_TOKEN` and `GITHUB_PAT` repository secrets.
 
 ## Contributing Notes
 - Keep content files in lowercase, hyphenated names (e.g., `content/projects/myvm.md`).
