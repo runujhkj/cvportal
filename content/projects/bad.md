@@ -18,5 +18,5 @@ current:
 next:
   - "Structured session export for post-shift handoff notes."
   - "Plugin interface for additional fix command categories."
-repo_status: "Private; in daily production use."
+repo_status: "Private; used daily for node triage at work. A personal tool rather than a team one, but its output (drainlists, failure summaries, node notes) is regularly handed to coworkers for analysis and tracing."
 ---

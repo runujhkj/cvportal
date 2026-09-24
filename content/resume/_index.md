@@ -27,10 +27,11 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ### Computer Specialist I — High-Performance Computing Center
 *Mississippi State University, Starkville, MS* · 2022–Present
 
-- Maintain and troubleshoot compute nodes across clusters ranging from 200 to 1,800 nodes, including drain handling, node reboots, hardware diagnosis, and vendor RMA coordination.
-- Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams; run test jobs and document behavioral changes.
-- Write and maintain diagnostic scripts (bash, Python) to surface node state, drain reasons, file system usage, and other health signals.
-- Support researchers and internal staff with job failures, environment issues, and general HPC usage questions.
+- Maintain and troubleshoot compute nodes across 4 Slurm clusters ranging from 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): drain handling, node reboots, hardware diagnosis, and vendor RMA coordination, averaging 10–20 hardware failures per month.
+- Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams, including IB adapter firmware managed through OpenManage Enterprise; run test jobs and document behavioral changes.
+- Write and maintain diagnostic scripts (bash, Python) to surface node state, drain reasons, Lustre file system usage, and other health signals.
+- Built and use `bad`, a personal terminal UI for daily node triage; its output is regularly shared with coworkers for analysis and tracing.
+- Support roughly 5,000 researchers and staff with job failures, environment issues, and general HPC usage questions.
 
 ### Research Computing Administrator (Freelance / Contract)
 *Remote* · 2023–2024
@@ -38,6 +39,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Maintained a bioinformatics software stack (~40 packages) supporting genomics and methylation sequencing workflows for a research group at Fox Chase Cancer Center.
 - Installed and built tools including Bowtie2, bwa-meth, MethylDackel, Picard, BUSCO, Augustus, HOMER, MaxQuant, and others using Spack where possible and manual source builds elsewhere.
 - Resolved dependency conflicts and build failures often working from incomplete or broken upstream documentation; sole technical contact for stack issues throughout.
+- Documented build procedures so environments could be rebuilt, and kept the stack current across upstream releases while maintaining legacy versions needed by existing workflows.
 
 ### Senior Intern — Center for Cyber Innovation
 *Mississippi State University, Starkville, MS* · 2020–2021
