@@ -1,5 +1,5 @@
 ---
-title: "Jeffrey \"Jack\" Hannon Jr."
+title: "Resume (HPC Systems)"
 ---
 
 # Jeffrey "Jack" Hannon Jr.
@@ -37,7 +37,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 - Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams; manage IB fabric firmware for OME-administered cards; run validation jobs and document behavioral changes.
 - Maintain Python and Bash tooling to surface Slurm state, drain reasons, Lustre filesystem usage, and node health signals across the fleet.
 - Built and maintain `bad`, a Python TUI used daily for personal node triage, integrating Slurm, NHC, and iDRAC/RACADM into a single session with live output capture and drainlist tracking.
-- Support approximately 5000 researchers and staff; handle roughly 10-20  hardware failure events per month.
+- Support approximately 5000 researchers and staff; handle roughly 10-20 hardware failure events per month.
 
 ### Research Computing Administrator (Freelance / Contract)
 *Remote* · 2023–2024

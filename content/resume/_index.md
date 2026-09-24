@@ -2,13 +2,20 @@
 title: "Resume"
 ---
 
-Linux / HPC Systems Administration · Automation · Diagnostics
+# Jeffrey "Jack" Hannon Jr.
+
+Linux / HPC Systems Administration · Automation · Diagnostics  
+
+Phone: +1 (251)-753-1915  
+Email: runujhkj@icloud.com  
+GitHub: https://github.com/runujhkj  
+Website: https://runujhkj.github.io/cvportal/
 
 ---
 
 ## Summary
 
-Linux-focused systems administrator working in a university HPC environment.
+Linux-focused systems administrator working in a university HPC environment.  
 Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmware/BIOS coordination with vendors, and automation with shell and Python. I build tools to reduce repetitive operational pain and make cluster behavior more visible.
 
 ---
@@ -24,7 +31,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 ## Experience
 
-### Computer Specialist I — High-Performance Computing Center
+### Computer Specialist I — High-Performance Computing Center  
 *Mississippi State University, Starkville, MS* · 2022–Present
 
 - Maintain and troubleshoot compute nodes across 4 Slurm clusters ranging from 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): drain handling, node reboots, hardware diagnosis, and vendor RMA coordination, averaging 10–20 hardware failures per month.
@@ -33,7 +40,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Built and use `bad`, a personal terminal UI for daily node triage; its output is regularly shared with coworkers for analysis and tracing.
 - Support roughly 5,000 researchers and staff with job failures, environment issues, and general HPC usage questions.
 
-### Research Computing Administrator (Freelance / Contract)
+### Research Computing Administrator (Freelance / Contract)  
 *Remote* · 2023–2024
 
 - Maintained a bioinformatics software stack (~40 packages) supporting genomics and methylation sequencing workflows for a research group at Fox Chase Cancer Center.
@@ -41,7 +48,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 - Resolved dependency conflicts and build failures often working from incomplete or broken upstream documentation; sole technical contact for stack issues throughout.
 - Documented build procedures so environments could be rebuilt, and kept the stack current across upstream releases while maintaining legacy versions needed by existing workflows.
 
-### Senior Intern — Center for Cyber Innovation
+### Senior Intern — Center for Cyber Innovation  
 *Mississippi State University, Starkville, MS* · 2020–2021
 
 - Provided technical support for end users and internal staff, including OS troubleshooting, basic scripting, and system maintenance.
@@ -61,7 +68,7 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 ### Home Network Lab — vplan & stepfam
 **Tech:** Linux, WireGuard/NordVPN, iptables, Pi-hole, step-ca, Docker, Caddy, bash, Python
 
-- Designed and maintain a multi-segment home network with a dual-NIC Debian Linux router providing LAN-wide VPN tunneling with selective per-device bypass via policy routing tables
+- Designed and maintain a multi-segment home network with a dual-NIC Debian Linux router providing LAN-wide VPN tunneling with selective per-device bypass via iptables mangle and policy routing tables
 - Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation
 - Built stepfam: a two-part PKI toolkit managing a private ACME CA (step-ca in Docker) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation — integrated with Caddy for automatic TLS on self-hosted services
 
@@ -90,5 +97,5 @@ Day-to-day work includes Slurm-driven cluster operations, hardware triage, firmw
 
 ## Education
 
-### B.S. in Computer Science
+### B.S. in Computer Science  
 Mississippi State University · 2021
