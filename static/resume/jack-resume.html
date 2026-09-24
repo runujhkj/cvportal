@@ -32,138 +32,100 @@
 </head>
 <body>
 <h1 id="jeffrey-jack-hannon-jr.">Jeffrey “Jack” Hannon Jr.</h1>
-<p>Linux / HPC Systems Administration · Automation · Diagnostics</p>
-<p>Phone: +1 (251)-753-1915<br />
-Email: runujhkj@icloud.com<br />
-GitHub: https://github.com/runujhkj<br />
-Website: https://runujhkj.github.io/cvportal/</p>
-<hr />
+<p>Systems Automation · Python Tooling · Self-Hosted AI
+Infrastructure</p>
+<p>+1 (251)-753-1915 · runujhkj@icloud.com · github.com/runujhkj ·
+runujhkj.github.io/cvportal</p>
 <h2 id="summary">Summary</h2>
-<p>Linux-focused systems administrator working in a university HPC
-environment.<br />
-Day-to-day work includes Slurm-driven cluster operations, hardware
-triage, firmware/BIOS coordination with vendors, and automation with
-shell and Python. I build tools to reduce repetitive operational pain
-and make cluster behavior more visible.</p>
-<hr />
+<p>Linux systems administrator with four years in university HPC
+operations (about 5,000 users) who builds the automation around the
+work: Python and Bash tooling for fleet triage, config-driven
+deployment, and API integrations across a self-hosted LLM stack. Works
+from specs and tests, documents what gets built, and directs LLM coding
+agents routinely.</p>
 <h2 id="skills">Skills</h2>
-<p><strong>Systems &amp; Infrastructure:</strong> Linux (Debian, Rocky,
-Ubuntu), SLURM, Lustre, OFED, QEMU/KVM, Docker, BIOS/firmware
-coordination<br />
-<strong>Networking &amp; Security:</strong> iptables, WireGuard, policy
-routing, DNS/DHCP (Pi-hole, dnsmasq), PKI/TLS (step-ca, ACME,
-mTLS)<br />
-<strong>Automation &amp; Development:</strong> Python (curses, PTY,
-PySide6, pytest), Bash/Zsh, Ansible, Git<br />
-<strong>Platforms &amp; Tooling:</strong> cloud-init, Forgejo/GitHub,
-ReFrame, LLM coding tools (Claude Code, Copilot)</p>
-<hr />
+<p><strong>Automation &amp; Development:</strong> Python, Bash, pytest,
+Git, Flask, SQLite (FTS5), REST/SSE APIs, Docker, Ansible<br />
+<strong>AI &amp; LLM Tooling:</strong> Ollama, OpenWebUI, ComfyUI,
+Faster-Whisper, WhisperKit, aider, Claude Code<br />
+<strong>Systems &amp; Networking:</strong> Linux (Rocky, Debian,
+Ubuntu), Slurm, Lustre, iptables, WireGuard, DNS/DHCP (Pi-hole), Caddy,
+PKI/TLS (step-ca), SSO/OIDC<br />
+<strong>Platforms:</strong> Forgejo/GitHub Actions, cloud-init,
+QEMU/KVM, NVIDIA Container Toolkit</p>
 <h2 id="experience">Experience</h2>
 <h3
-id="computer-specialist-i-high-performance-computing-center">Computer
-Specialist I — High-Performance Computing Center</h3>
-<p><em>Mississippi State University, Starkville, MS</em> ·
-2022–Present</p>
+id="computer-specialist-i-hpc-center-mississippi-state-university-2022present">Computer
+Specialist I — HPC Center · <em>Mississippi State University ·
+2022–Present</em></h3>
 <ul>
-<li>Maintain and troubleshoot compute nodes across 4 Slurm clusters
-ranging from 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes):
-drain handling, node reboots, hardware diagnosis, and vendor RMA
-coordination, averaging 10–20 hardware failures per month.</li>
+<li>Operate 4 Slurm clusters of 96 to 1,800 nodes (including 16 GPU and
+16 bigmem nodes): node triage, drain handling, hardware diagnosis, and
+vendor RMA coordination across 10–20 hardware failures per month.</li>
+<li>Write and maintain Python and Bash tooling that surfaces node state,
+drain reasons, Lustre usage, and health signals; built <code>bad</code>,
+a Python terminal UI (~8,500 lines, 100+ pytest files) used daily for
+triage.</li>
 <li>Coordinate firmware, BIOS, and OFED upgrades with Dell and internal
-teams, including IB adapter firmware managed through OpenManage
-Enterprise; run test jobs and document behavioral changes.</li>
-<li>Write and maintain diagnostic scripts (bash, Python) to surface node
-state, drain reasons, Lustre file system usage, and other health
-signals.</li>
-<li>Built and use <code>bad</code>, a personal terminal UI for daily
-node triage; its output is regularly shared with coworkers for analysis
-and tracing.</li>
-<li>Support roughly 5,000 researchers and staff with job failures,
-environment issues, and general HPC usage questions.</li>
+teams, including IB adapter firmware through OpenManage Enterprise; run
+validation jobs and document behavioral changes.</li>
 </ul>
-<h3 id="research-computing-administrator-freelance-contract">Research
-Computing Administrator (Freelance / Contract)</h3>
-<p><em>Remote</em> · 2023–2024</p>
+<h3
+id="research-computing-administrator-freelance-contract-remote-20232024">Research
+Computing Administrator (Freelance / Contract) · <em>Remote ·
+2023–2024</em></h3>
 <ul>
-<li>Maintained a bioinformatics software stack (~40 packages) supporting
-genomics and methylation sequencing workflows for a research group at
-Fox Chase Cancer Center.</li>
-<li>Installed and built tools including Bowtie2, bwa-meth, MethylDackel,
-Picard, BUSCO, Augustus, HOMER, MaxQuant, and others using Spack where
-possible and manual source builds elsewhere.</li>
-<li>Resolved dependency conflicts and build failures often working from
-incomplete or broken upstream documentation; sole technical contact for
-stack issues throughout.</li>
-<li>Documented build procedures so environments could be rebuilt, and
-kept the stack current across upstream releases while maintaining legacy
-versions needed by existing workflows.</li>
+<li>Sole technical owner of a ~40-package bioinformatics stack for a
+genomics research group at Fox Chase Cancer Center, built with Spack and
+source builds despite incomplete upstream documentation.</li>
+<li>Worked directly with the lead researcher on installs and
+troubleshooting; documented build procedures so environments could be
+rebuilt, and maintained legacy versions that existing workflows depended
+on.</li>
 </ul>
-<hr />
 <h2 id="selected-projects">Selected Projects</h2>
-<h3 id="bad-hpc-administration-terminal-ui">bad — HPC Administration
-Terminal UI</h3>
-<p><strong>Tech:</strong> Python, curses, PTY, SLURM, NHC, iDRAC/RACADM,
-pytest</p>
+<h3
+id="locallm-self-hosted-llm-and-genai-stack-python-docker-ollama-comfyui-aider">locallm
+— Self-Hosted LLM and GenAI Stack · <em>Python, Docker, Ollama, ComfyUI,
+aider</em></h3>
 <ul>
-<li>Built a persistent interactive TUI replacing ad-hoc shell workflows
-for day-to-day cluster administration across large node sets</li>
-<li>Integrates SLURM, NHC, and Dell iDRAC RACADM into a single stateful
-session with live output capture, drainlist diff tracking, and cached
-sudo credentials</li>
-<li>~8,500 lines across ~90 modules with 100+ pytest files including PTY
-simulation for integration-level testing</li>
+<li>Control plane that generates the Docker Compose stack from one
+config file through a service registry: adding a service is a single
+module, which also provides a typed API client for health checks,
+status, and scripting.</li>
+<li>Hardware-aware tuning and benchmarking; image, music, and
+LoRA-training workflows.</li>
+<li>Benchmark harness for local coding agents: a model on the GPU host
+builds iOS and Python apps via aider while another machine builds and
+tests over SSH, scored against specs and acceptance tests it cannot
+edit.</li>
 </ul>
-<h3 id="home-network-lab-vplan-stepfam">Home Network Lab — vplan &amp;
-stepfam</h3>
-<p><strong>Tech:</strong> Linux, WireGuard/NordVPN, iptables, Pi-hole,
-step-ca, Docker, Caddy, bash, Python</p>
+<h3
+id="what-local-live-transcription-service-python-faster-whisper-cuda-whisperkit-electron-obs">what
+— Local Live Transcription Service · <em>Python, Faster-Whisper (CUDA),
+WhisperKit, Electron, OBS</em></h3>
 <ul>
-<li>Designed and maintain a multi-segment home network with a dual-NIC
-Debian Linux router providing LAN-wide VPN tunneling with selective
-per-device bypass via iptables mangle and policy routing tables</li>
-<li>Built vplan: a device-management toolkit generating Pi-hole DHCP
-reservations and DNS records idempotently from a single source-of-truth
-config, with full DNS postcheck validation</li>
-<li>Built stepfam: a two-part PKI toolkit managing a private ACME CA
-(step-ca in Docker) with inventory-driven cert issuance, SSH-based
-deployment, trust-chain distribution, and CA rotation — integrated with
-Caddy for automatic TLS on self-hosted services</li>
+<li>Engine-independent transcription schema streamed over SSE to OBS
+captions and a live avatar pipeline; per-stream ASR workers, word-level
+replay and corrections. Preparing a GPL-3.0 release.</li>
 </ul>
-<h3 id="netcon-ios-network-coverage-mapper">netcon — iOS Network
-Coverage Mapper</h3>
-<p><strong>Tech:</strong> Swift, SwiftUI, CoreLocation, CoreMotion,
-CoreData, MapKit, CoreGraphics</p>
+<h3
+id="vplan-home-network-automation-and-sso-bash-python-iptables-wireguard-authelia">vplan
+— Home Network Automation and SSO · <em>Bash, Python, iptables,
+WireGuard, Authelia</em></h3>
 <ul>
-<li>Built a self-contained iOS app that passively measures Wi-Fi and
-cellular quality (latency, loss, throughput) as the user moves and
-renders results as a zoomable heatmap overlay</li>
-<li>Implemented a custom MapKit tile rasteriser with manual Web-Mercator
-projection, zoom-adaptive power-of-2 grid snapping, and confidence-based
-opacity blending</li>
-<li>Zero third-party dependencies; covers background location
-scheduling, Core Data persistence, and multi-format export (zip, CSV,
-GeoJSON)</li>
+<li>Inventory-driven DNS/DHCP, per-device VPN bypass, WireGuard remote
+access, and Authelia SSO (forward-auth and OIDC) across self-hosted
+services, with TLS from a private ACME CA.</li>
 </ul>
-<h3 id="myvm-apple-silicon-vm-manager">myvm — Apple Silicon VM
-Manager</h3>
-<p><strong>Tech:</strong> Python, PySide6, QEMU, QMP, HVF,
-cloud-init</p>
-<ul>
-<li>Desktop GUI for full VM lifecycle management on Apple Silicon using
-QEMU with HVF acceleration and macosvm for macOS guests</li>
-<li>Drives QEMU over QMP Unix socket for graceful ACPI shutdown;
-auto-manages SSH config blocks so VMs are immediately reachable by name
-after first boot</li>
-<li>Generates cloud-init NoCloud seed ISOs with Jinja-templated
-user-data for reproducible guest provisioning</li>
-</ul>
-<hr />
-<h2 id="certificationsawards">Certifications/Awards</h2>
-<h3 id="comptia-a">CompTIA A+</h3>
-<p><strong>Awarded:</strong> 11/2025</p>
-<hr />
-<h2 id="education">Education</h2>
-<h3 id="b.s.-in-computer-science">B.S. in Computer Science</h3>
-<p>Mississippi State University · 2021</p>
+<h3
+id="langquiz-multilingual-vocabulary-web-app-python-flask-sqlite-fts5-docker">langquiz
+— Multilingual Vocabulary Web App · <em>Python, Flask, SQLite (FTS5),
+Docker</em></h3>
+<p>20 languages from Wiktionary and Tatoeba data, SM-2 spaced
+repetition, self-hosted PWA.</p>
+<h2 id="education-certifications">Education / Certifications</h2>
+<p><strong>B.S. Computer Science</strong>, Mississippi State University,
+2021 · <strong>CompTIA A+</strong>, 2025</p>
 </body>
 </html>
