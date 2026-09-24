@@ -8,8 +8,8 @@ stats from the Forgejo API, and writes data/project_stats.json.
 Required env vars:
   FORGEJO_TOKEN  — API token with read access to project repos
 
-Optional env vars (defaults match the fed.home instance):
-  FORGEJO_URL    — base URL of the Forgejo instance (default: https://fed.home)
+Optional env vars (defaults match the fed.home.vplan instance):
+  FORGEJO_URL    — base URL of the Forgejo instance (default: https://fed.home.vplan)
   FORGEJO_USER   — Forgejo username owning the repos (default: thefed)
 """
 
@@ -27,7 +27,7 @@ except ImportError:
     print("pyyaml is required: pip install pyyaml", file=sys.stderr)
     sys.exit(1)
 
-FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home")
+FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home.vplan")
 FORGEJO_USER = os.environ.get("FORGEJO_USER", "thefed")
 FORGEJO_TOKEN = os.environ.get("FORGEJO_TOKEN", "")
 

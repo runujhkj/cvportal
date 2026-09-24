@@ -18,7 +18,7 @@ jobs:
 
       - name: Collect Forgejo stats
         env:
-          FORGEJO_URL: https://fed.home
+          FORGEJO_URL: https://fed.home.vplan
           FORGEJO_USER: thefed
           FORGEJO_TOKEN: ${{ secrets.FORGEJO_TOKEN }}
         run: python3 scripts/collect_stats.py
@@ -26,7 +26,7 @@ jobs:
       - name: Commit stats if changed
         run: |
           git config user.name "forgejo-actions"
-          git config user.email "actions@fed.home"
+          git config user.email "actions@fed.home.vplan"
           git add data/project_stats.json
           git diff --cached --quiet || git commit -m "chore: update project stats [skip ci]"
 

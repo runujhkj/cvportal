@@ -17,7 +17,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PAGES_DIR = REPO_ROOT / "content" / "projects"
 PROJECTS_DIR = Path(os.environ.get("PROJECTS_DIR", "~/projects")).expanduser()
 STALE_DAYS = int(os.environ.get("STALE_DAYS", "14"))
-FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home")
+FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home.vplan")
 FORGEJO_USER = os.environ.get("FORGEJO_USER", "thefed")
 FORGEJO_TOKEN = os.environ.get("FORGEJO_TOKEN", "")
 
