@@ -69,7 +69,7 @@ def repo_stats(repo_name):
     )
 
     return {
-        "last_push": data.get("updated"),
+        "last_push": data.get("updated_at"),
         "commit_count": int(h_all.get("X-Total-Count", 0)),
         "commits_90d": int(h_90d.get("X-Total-Count", 0)),
     }
@@ -106,7 +106,7 @@ def main():
             continue
         if result:
             stats[slug] = result
-            print(f"ok  (last push {result['last_push'][:10]}, "
+            print(f"ok  (last push {(result['last_push'] or '?')[:10]}, "
                   f"{result['commit_count']} commits, "
                   f"{result['commits_90d']} in 90d)")
         else:

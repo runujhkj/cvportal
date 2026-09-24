@@ -6,3 +6,6 @@ resume-hpc:
 
 serve:
 	hugo server --port 1313
+
+scan:
+	python3 scripts/scan_projects.py

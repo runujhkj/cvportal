@@ -1,5 +1,6 @@
 ---
 title: "Language Quiz (PySide6)"
+forgejo_repo: "langquiz"
 status: "Active"
 summary: "A minimal desktop vocabulary drill tool for multiple scripts and languages."
 tech: ["Python", "PySide6", "JSON"]
