@@ -52,8 +52,9 @@ def local_rows(pages, me):
             continue
         total = int(git(d, "rev-list", "--count", "HEAD"))
         recent = int(git(d, "rev-list", "--count", "--since=90.days", "HEAD"))
-        mine = int(git(d, "rev-list", "--count", f"--author={me}", "HEAD")) if me else total
-        slug = pages.get(d.name.lower())
+        mine = int(git(d, "rev-list", "--count", *[f"--author={a}" for a in me], "HEAD")) if me else total
+        pushed_as = forgejo.repo_name_from_remotes(git(d, "remote", "-v").splitlines())
+        slug = pages.get(d.name.lower()) or pages.get(pushed_as.lower())
         notes = []
         if mine < total / 2:
             top = git(d, "shortlog", "-se", "HEAD").splitlines()
@@ -88,12 +89,12 @@ def table(header, rows):
 
 def main():
     pages = page_map()
-    me = git(REPO_ROOT, "config", "user.email")
+    me = [n for n in (git(REPO_ROOT, "config", "user.email"), git(REPO_ROOT, "config", "user.name")) if n]
     rows = local_rows(pages, me)
-    print(f"Local repos in {PROJECTS_DIR} (90D = commits in last 90 days, MINE = authored by {me or '?'})\n")
+    print(f"Local repos in {PROJECTS_DIR} (90D = commits in last 90 days, MINE = authored by {' or '.join(me) or '?'})\n")
     table(("REPO", "LAST", "90D", "TOTAL", "MINE", "PAGE", "NOTE"), rows)
 
-    found = {r[0].lower() for r in rows}
+    found = {r[0].lower() for r in rows} | {r[5].lower() for r in rows}
     if forgejo.token():
         print(f"\nForgejo repos at {forgejo.URL} not cloned locally\n")
         try:

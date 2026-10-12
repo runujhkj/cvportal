@@ -53,6 +53,13 @@ def git(repo, *args):
     return r.stdout.strip() if r.returncode == 0 else ""
 
 
+def own_authors():
+    """Author patterns that count as the owner: git name and email, plus CVPORTAL_AUTHORS (comma-separated)."""
+    names = [git(REPO_ROOT, "config", "user.email"), git(REPO_ROOT, "config", "user.name")]
+    names += os.environ.get("CVPORTAL_AUTHORS", "").split(",")
+    return [n.strip() for n in names if n.strip()]
+
+
 def page_map():
     mapping = {}
     for md in PAGES_DIR.glob("*.md"):
@@ -96,7 +103,7 @@ def local_facts(repo, pages, me):
         return facts
 
     total = int(git(repo, "rev-list", "--count", "HEAD"))
-    mine = int(git(repo, "rev-list", "--count", f"--author={me}", "HEAD")) if me else total
+    mine = int(git(repo, "rev-list", "--count", *[f"--author={a}" for a in me], "HEAD")) if me else total
     authors = [l.strip() for l in git(repo, "shortlog", "-sne", "HEAD").splitlines()][:5]
     top = authors[0] if authors else ""
     if mine >= total / 2:
@@ -135,7 +142,7 @@ def local_facts(repo, pages, me):
 
     readme = next((f for f in files if re.match(r"^README(\.md|\.txt|\.rst)?$", f, re.I)), None)
     docs = [f for f in files if f.lower().endswith(".md") and (f.count("/") == 0 or f.startswith("docs/"))]
-    slug = pages.get(name.lower())
+    slug = pages.get(name.lower()) or pages.get(forgejo.repo_name_from_remotes(facts["remotes"]).lower())
     edited = git(REPO_ROOT, "log", "-1", "--format=%cs", "--", f"content/projects/{slug}.md") if slug else ""
     unity = repo / "ProjectSettings" / "ProjectVersion.txt"
     facts.update({
@@ -224,7 +231,7 @@ def digest(all_facts):
 
 def main():
     pages = page_map()
-    me = git(REPO_ROOT, "config", "user.email")
+    me = own_authors()
     OUT_DIR.mkdir(exist_ok=True)
     all_facts = []
 
@@ -242,13 +249,11 @@ def main():
             print(f"Forgejo skipped: {exc}", file=sys.stderr)
         by_name = {f["name"].lower(): f for f in all_facts}
         # A local clone may be pushed under a different name; trust its remote URL.
-        host = forgejo.URL.split("//")[-1]
         for f in all_facts:
-            for remote_line in f.get("remotes", []):
-                m = re.search(rf"{re.escape(host)}[:/0-9]*/[^/]+/([^/\s]+?)(\.git)?$", remote_line)
-                if m:
-                    f["forgejo_name"] = m.group(1)
-                    by_name.setdefault(m.group(1).lower(), f)
+            pushed_as = forgejo.repo_name_from_remotes(f.get("remotes", []))
+            if pushed_as:
+                f["forgejo_name"] = pushed_as
+                by_name.setdefault(pushed_as.lower(), f)
         for r in remote:
             if r["name"].lower() == REPO_ROOT.name.lower():
                 continue

@@ -7,6 +7,7 @@ store, which holds the LAN's private CA, is used.
 
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -14,6 +15,16 @@ URL = os.environ.get("FORGEJO_URL", "https://fed.home.vplan").rstrip("/")
 USER = os.environ.get("FORGEJO_USER", "thefed")
 KEYCHAIN_SERVICE = "cvportal-forgejo"
 CURL = "/usr/bin/curl" if sys.platform == "darwin" else "curl"
+
+
+def repo_name_from_remotes(remote_lines):
+    """Name of the repo on this Forgejo that a clone pushes to, or '' if none."""
+    host = re.escape(URL.split("//")[-1])
+    for line in remote_lines:
+        m = re.search(rf"{host}[:/0-9]*/[^/]+/([^/\s]+?)(\.git)?(\s|$)", line)
+        if m:
+            return m.group(1)
+    return ""
 
 
 class ApiError(Exception):
