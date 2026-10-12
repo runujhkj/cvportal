@@ -5,7 +5,7 @@ layouts, and assets in `static/`. The site deploys to GitHub Pages via CI.
 
 ## Requirements
 - Hugo (CI pins `0.162.1`).
-- Pandoc with a LaTeX engine (resume PDFs), and Google Chrome (prints the general resume's HTML to PDF).
+- Pandoc with a LaTeX engine (HPC resume PDF), and the Swift toolchain from Xcode's command line tools (prints the general resume's HTML to PDF with the system WebKit; macOS only).
 
 ## Project Structure
 - `content/`: Site content in Markdown (projects, about, resume).
@@ -32,7 +32,7 @@ site, and pandoc builds the downloadable copy from it through the root symlink.
 Edit the file under `content/` (or the symlink; they are the same file), then:
 
 ```bash
-make resume       # static/resume/jack-resume.html and jack-resume.pdf (Chrome prints the HTML)
+make resume       # static/resume/jack-resume.html and jack-resume.pdf (scripts/html2pdf.swift prints the HTML)
 make resume-hpc   # static/resume/jack-resume-hpc.pdf (pandoc + LaTeX)
 ```
 
