@@ -13,6 +13,7 @@ current:
   - "Linux NVIDIA runtime dependencies prepared automatically at startup, with a non-interactive CUDA-to-CPU fallback."
   - "Append-safe session recordings and transcript offsets that survive reconnects."
   - "Prepared for source publication under GPL-3.0-or-later, with privacy cleanup and third-party license notes."
+  - "mictest, a small companion tool: a cross-platform terminal monitor for microphone input levels."
 next:
   - "v0.1 release certification: hardware acceptance checks for device switching and a full platform pass."
   - "v0.2: using saved corrections to improve recognition."

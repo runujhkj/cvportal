@@ -24,7 +24,7 @@ Linux systems administrator with four years in university HPC operations (about 
 ### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
 
 - Operate 4 Slurm clusters of 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): node triage, drain handling, hardware diagnosis, and vendor RMA coordination across 10–20 hardware failures per month.
-- Write and maintain Python and Bash tooling that surfaces node state, drain reasons, Lustre usage, and health signals; built `bad`, a Python terminal UI (~8,500 lines, 100+ pytest files) used daily for triage.
+- Write and maintain Python and Bash tooling that surfaces node state, drain reasons, Lustre usage, and health signals; built `bad`, a Python terminal UI (~20,400 lines, 69 pytest files) used daily for triage.
 - Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams, including IB adapter firmware through OpenManage Enterprise; run validation jobs and document behavioral changes.
 
 ### Research Computing Administrator (Freelance / Contract) · *Remote · 2023–2024*

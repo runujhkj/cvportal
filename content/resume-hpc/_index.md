@@ -39,7 +39,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 ## Selected Projects
 
-**bad — HPC Administration Terminal UI** (Python, curses, PTY, pytest): ~8,500 lines across ~90 modules, with 100+ pytest files including PTY simulation for integration-level testing.
+**bad — HPC Administration Terminal UI** (Python, curses, PTY, pytest): ~20,400 lines across 115 modules, with 69 pytest files including PTY simulation for integration-level testing.
 
 ### Home Network / Infrastructure Automation
 **Tech:** Linux, WireGuard, iptables, dnsmasq, Pi-hole, step-ca, Docker, Python, Bash

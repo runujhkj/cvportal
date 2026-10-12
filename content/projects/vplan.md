@@ -10,9 +10,9 @@ current:
   - "Per-device VPN bypass from one source of truth, with a guard timer that reapplies rules after NordVPN reconnects."
   - "WireGuard road-warrior server: peer tooling, friend-scoped peers restricted to listed host:port targets, split DNS, MSS clamping, a DDNS auto-updater, and a client watchdog that recovers a stalled tunnel."
   - "Web portal showing ISP vs VPN upstream health, speed samples, VPN server location, bypass state, and config sync drift, plus a DHCP device-enrollment page."
-  - "Authelia single sign-on: forward-auth gates on LAN services, with OIDC as the preferred pattern for Forgejo, OpenWebUI, Guacamole, Piwigo, and Immich."
+  - "Authelia single sign-on: forward-auth gates on LAN services, with OIDC as the preferred pattern for Forgejo, OpenWebUI, Guacamole, and Immich."
   - "Browser remote desktop through Apache Guacamole 1.6 with Postgres-backed connections, a small extension for edge panning and touch scrolling, and an Ansible role that provisions remote-desktop targets."
-  - "Photo offload pipeline: staged export from phones and a Mac library into two independent stores, verified by content hash (21,486 of 21,551 items confirmed in the first full run), with a ledger, a filtered view served to Immich, and hourly replication of new uploads checked against Immich's own checksums."
+  - "Photo offload pipeline: staged export from phones and a Mac library into two independent stores, verified by content hash (21,486 of 21,551 items confirmed in the first full run), with a ledger, a filtered view served to Immich (which replaced an earlier Piwigo gallery), and hourly replication of new uploads checked against Immich's own checksums."
   - "One-step device onboarding that pushes the private CA's trust and DNS settings, and a completed migration of the internal domain across DNS, Caddy, the CA, and client tooling."
 next:
   - "Per-user remote-desktop connections in Guacamole."
