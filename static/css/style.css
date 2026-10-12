@@ -347,6 +347,33 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75rem 0;
+  font-size: 0.92rem;
+}
+
+.content th,
+.content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.content th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.built-by {
+  color: var(--muted);
+  font-size: 0.92rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 0.75rem;
+}
+
 /* Footer */
 
 .site-footer {

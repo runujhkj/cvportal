@@ -17,6 +17,12 @@
     {{ end }}
   </p>
 
+  {{ with .Params.built_by }}
+    {{ with $.Site.GetPage (printf "/projects/%s" .) }}
+      <p class="built-by">Code written by a local language model through <a href="{{ .RelPermalink }}">{{ index (split .Title " — ") 0 }}</a>, working to a spec and tests I set.</p>
+    {{ end }}
+  {{ end }}
+
   {{ with .Params.problem }}
     <h2>Problem it addresses</h2>
     <p>{{ . }}</p>
@@ -86,6 +92,16 @@
   {{ if .Content }}
     <h2>Notes</h2>
     {{ .Content }}
+  {{ end }}
+
+  {{ $built := where (where .Site.RegularPages "Section" "projects") "Params.built_by" .File.ContentBaseName }}
+  {{ with $built }}
+    <h2>Built with {{ index (split $.Title " — ") 0 }}</h2>
+    <ul class="built-list">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary }}: {{ . }}{{ end }}</li>
+      {{ end }}
+    </ul>
   {{ end }}
 
   {{ with .Params.repo }}
