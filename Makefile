@@ -12,3 +12,9 @@ serve:
 
 scan:
 	python3 scripts/scan_projects.py
+
+facts:
+	python3 scripts/collect_facts.py
+
+forgejo-check:
+	python3 scripts/forgejo.py

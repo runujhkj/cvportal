@@ -2,24 +2,23 @@
 """Report local and Forgejo repos that are candidates for new or updated cvportal pages.
 
 Env: PROJECTS_DIR (default ~/projects), STALE_DAYS (default 14),
-FORGEJO_TOKEN / FORGEJO_URL / FORGEJO_USER (Forgejo section runs only if a token is set).
+FORGEJO_URL / FORGEJO_USER. The Forgejo section runs only if a token is found (scripts/forgejo.py).
 """
 
-import json
 import os
 import re
 import subprocess
-import urllib.request
+import sys
 from datetime import date
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import forgejo  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAGES_DIR = REPO_ROOT / "content" / "projects"
 PROJECTS_DIR = Path(os.environ.get("PROJECTS_DIR", "~/projects")).expanduser()
 STALE_DAYS = int(os.environ.get("STALE_DAYS", "14"))
-FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home.vplan")
-FORGEJO_USER = os.environ.get("FORGEJO_USER", "thefed")
-FORGEJO_TOKEN = os.environ.get("FORGEJO_TOKEN", "")
 
 
 def git(repo, *args):
@@ -71,10 +70,7 @@ def local_rows(pages, me):
 
 
 def forgejo_rows(pages, local_names):
-    req = urllib.request.Request(f"{FORGEJO_URL}/api/v1/users/{FORGEJO_USER}/repos?limit=50")
-    req.add_header("Authorization", f"token {FORGEJO_TOKEN}")
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        repos = json.loads(resp.read())
+    repos = forgejo.get_all("/user/repos")
     rows = []
     for r in repos:
         if r["name"].lower() in local_names:
@@ -98,8 +94,8 @@ def main():
     table(("REPO", "LAST", "90D", "TOTAL", "MINE", "PAGE", "NOTE"), rows)
 
     found = {r[0].lower() for r in rows}
-    if FORGEJO_TOKEN:
-        print(f"\nForgejo repos at {FORGEJO_URL} not cloned locally\n")
+    if forgejo.token():
+        print(f"\nForgejo repos at {forgejo.URL} not cloned locally\n")
         try:
             remote, remote_names = forgejo_rows(pages, found)
             table(("REPO", "UPDATED", "PAGE", "DESCRIPTION"), remote)
@@ -107,7 +103,7 @@ def main():
         except Exception as exc:
             print(f"  skipped: {exc}")
     else:
-        print("\n(FORGEJO_TOKEN not set; skipping Forgejo listing)")
+        print("\n(No Forgejo token found; skipping Forgejo listing)")
 
     orphans = sorted(slug for repo, slug in pages.items() if repo not in found)
     if orphans:

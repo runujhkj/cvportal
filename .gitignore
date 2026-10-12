@@ -4,3 +4,5 @@ static/.DS_Store
 public
 AGENTS.md
 .claude
+facts/
+__pycache__/

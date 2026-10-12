@@ -5,8 +5,7 @@ Reads content/projects/*.md, resolves each project's Forgejo repo name
 (uses frontmatter 'forgejo_repo' if set, otherwise the page slug), fetches
 stats from the Forgejo API, and writes data/project_stats.json.
 
-Required env vars:
-  FORGEJO_TOKEN  — API token with read access to project repos
+Token: FORGEJO_TOKEN env var, or the macOS Keychain item (see scripts/forgejo.py).
 
 Optional env vars (defaults match the fed.home.vplan instance):
   FORGEJO_URL    — base URL of the Forgejo instance (default: https://fed.home.vplan)
@@ -16,8 +15,6 @@ Optional env vars (defaults match the fed.home.vplan instance):
 import json
 import os
 import sys
-import urllib.error
-import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -27,9 +24,10 @@ except ImportError:
     print("pyyaml is required: pip install pyyaml", file=sys.stderr)
     sys.exit(1)
 
-FORGEJO_URL = os.environ.get("FORGEJO_URL", "https://fed.home.vplan")
-FORGEJO_USER = os.environ.get("FORGEJO_USER", "thefed")
-FORGEJO_TOKEN = os.environ.get("FORGEJO_TOKEN", "")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import forgejo  # noqa: E402
+
+FORGEJO_USER = forgejo.USER
 
 REPO_ROOT = Path(__file__).parent.parent
 CONTENT_DIR = REPO_ROOT / "content" / "projects"
@@ -42,17 +40,7 @@ SINCE_90D = (datetime.now(timezone.utc) - timedelta(days=90)).strftime(
 
 def api_get(path):
     """Return (parsed_body, headers) for a Forgejo API GET, or (None, {}) on 404."""
-    url = f"{FORGEJO_URL}/api/v1{path}"
-    req = urllib.request.Request(url)
-    if FORGEJO_TOKEN:
-        req.add_header("Authorization", f"token {FORGEJO_TOKEN}")
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return json.loads(resp.read()), dict(resp.headers)
-    except urllib.error.HTTPError as exc:
-        if exc.code == 404:
-            return None, {}
-        raise
+    return forgejo.get(path)
 
 
 def repo_stats(repo_name):
@@ -70,8 +58,8 @@ def repo_stats(repo_name):
 
     return {
         "last_push": data.get("updated_at"),
-        "commit_count": int(h_all.get("X-Total-Count", 0)),
-        "commits_90d": int(h_90d.get("X-Total-Count", 0)),
+        "commit_count": int(h_all.get("x-total-count", 0)),
+        "commits_90d": int(h_90d.get("x-total-count", 0)),
     }
 
 
@@ -84,8 +72,8 @@ def parse_frontmatter(path):
 
 
 def main():
-    if not FORGEJO_TOKEN:
-        print("warning: FORGEJO_TOKEN not set; requests to private repos will fail",
+    if not forgejo.token():
+        print("warning: no Forgejo token found; requests to private repos will fail",
               file=sys.stderr)
 
     stats = {}

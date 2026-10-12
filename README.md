@@ -13,7 +13,7 @@ layouts, and assets in `static/`. The site deploys to GitHub Pages via CI.
 - `static/`: Static assets (CSS, images, resume artifacts).
 - `public/`: Generated site output (do not edit by hand).
 - `resume.md`, `resume-hpc.md`: symlinks to `content/resume/_index.md` and `content/resume-hpc/_index.md`, the single source for each resume variant.
-- `scripts/`: `scan_projects.py` (find project pages to add or update) and `collect_stats.py` (Forgejo repo stats for the deploy workflow).
+- `scripts/`: `scan_projects.py` (find project pages to add or update), `collect_facts.py` (local fact files), `collect_stats.py` (Forgejo repo stats for the deploy workflow), and `forgejo.py` (shared API access).
 
 ## Development
 Run the local server with live reload:
@@ -44,9 +44,26 @@ make scan
 ```
 
 Lists repos under `~/projects` with recent activity, authorship, and whether a
-project page exists or has fallen behind the repo. Set `FORGEJO_TOKEN` to also
-list Forgejo repos that are not cloned locally. A page whose file name differs
+project page exists or has fallen behind the repo. With a Forgejo token (see
+below) it also lists Forgejo repos that are not cloned locally. A page whose file name differs
 from its repo sets `forgejo_repo:` in front matter.
+
+## Collecting Project Facts
+```bash
+make facts
+```
+
+Writes mechanical facts about every repo under `~/projects` (commit history,
+authorship, lines by language, test files, dependencies, docs, README excerpt)
+to `facts/<repo>.json` and `facts/DIGEST.md`. With a Forgejo token it also
+covers repos that exist only on Forgejo. `facts/` is gitignored: it holds
+details from private repos and is source material for pages and resumes, not
+something to publish.
+
+Forgejo token, read by `scripts/forgejo.py`: the `FORGEJO_TOKEN` environment
+variable, or the macOS Keychain item `cvportal-forgejo`. Store it with
+`security add-generic-password -U -a thefed -s cvportal-forgejo -w` (it prompts
+for the token) and test it with `make forgejo-check`.
 
 ## Project Screenshots and Recordings
 
