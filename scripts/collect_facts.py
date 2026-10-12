@@ -195,6 +195,8 @@ def digest(all_facts):
         fj = f.get("forgejo") or {}
         if fj.get("description"):
             out.append(f"- Forgejo description: {fj['description']}")
+        if fj.get("name") and fj["name"] != f["name"]:
+            out.append(f"- Forgejo repo name: {fj['name']}")
         if fj:
             out.append(f"- Forgejo: private={fj.get('private')}, archived={fj.get('archived')}, updated {str(fj.get('updated_at'))[:10]}")
         for key, label in (("authors", "Authors"), ("markers", "Has"), ("dependencies", "Dependencies"), ("tags", "Tags")):
@@ -239,11 +241,19 @@ def main():
             remote = []
             print(f"Forgejo skipped: {exc}", file=sys.stderr)
         by_name = {f["name"].lower(): f for f in all_facts}
+        # A local clone may be pushed under a different name; trust its remote URL.
+        host = forgejo.URL.split("//")[-1]
+        for f in all_facts:
+            for remote_line in f.get("remotes", []):
+                m = re.search(rf"{re.escape(host)}[:/0-9]*/[^/]+/([^/\s]+?)(\.git)?$", remote_line)
+                if m:
+                    f["forgejo_name"] = m.group(1)
+                    by_name.setdefault(m.group(1).lower(), f)
         for r in remote:
             if r["name"].lower() == REPO_ROOT.name.lower():
                 continue
             if r["name"].lower() in by_name:
-                by_name[r["name"].lower()]["forgejo"] = forgejo_meta(r)
+                by_name[r["name"].lower()]["forgejo"] = {"name": r["name"], **forgejo_meta(r)}
                 continue
             print(f"  forgejo  {r['name']}", flush=True)
             try:
@@ -257,6 +267,8 @@ def main():
     else:
         print("No Forgejo token found; local repos only. See scripts/forgejo.py.", file=sys.stderr)
 
+    for stale in OUT_DIR.glob("*.json"):
+        stale.unlink()
     for f in all_facts:
         (OUT_DIR / f"{f['name']}.json").write_text(json.dumps(f, indent=2) + "\n", encoding="utf-8")
     (OUT_DIR / "DIGEST.md").write_text(digest(all_facts), encoding="utf-8")
