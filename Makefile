@@ -1,3 +1,5 @@
+.PHONY: resume resume-hpc serve scan facts forgejo-check
+
 CHROME ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 
 resume:
