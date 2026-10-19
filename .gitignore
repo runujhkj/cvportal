@@ -6,3 +6,4 @@ AGENTS.md
 .claude
 facts/
 __pycache__/
+private/

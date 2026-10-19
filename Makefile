@@ -1,4 +1,4 @@
-.PHONY: resume resume-hpc serve scan facts forgejo-check
+.PHONY: resume resume-hpc private-resumes serve scan facts forgejo-check
 
 resume:
 	cd static/resume && pandoc ../../resume.md -o jack-resume.html --css=resume.css --standalone --from markdown -M title="" -M pagetitle="Jeffrey Hannon Jr. — Resume"
@@ -18,3 +18,12 @@ facts:
 
 forgejo-check:
 	python3 scripts/forgejo.py
+
+# Builds every private/resume-*.md (gitignored, never published) to HTML and PDF beside it.
+private-resumes:
+	@for md in private/resume-*.md; do \
+		[ -e "$$md" ] || { echo "no private/resume-*.md files"; exit 1; }; \
+		base=$${md%.md}; \
+		pandoc "$$md" -o "$$base.html" --css=static/resume/resume.css --embed-resources --standalone --from markdown -M title="" -M pagetitle="Jeffrey Hannon Jr. — Resume" && \
+		swift scripts/html2pdf.swift "$$base.html" "$$base.pdf" 0.45 0.6 && echo "built $$base.pdf"; \
+	done
