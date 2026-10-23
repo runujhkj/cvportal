@@ -1,0 +1,2 @@
+{{- $classes := dict "Active" "badge-active" "In development" "badge-in-development" "Prototype" "badge-prototype" "Submitted" "badge-submitted" -}}
+{{- with . -}}<span class="badge {{ index $classes . | default "" }}">{{ . }}</span>{{- end -}}

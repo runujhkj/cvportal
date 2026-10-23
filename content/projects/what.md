@@ -1,6 +1,7 @@
 ---
 title: "what — Local Live Transcription and Captions"
 status: "In development"
+featured: true
 summary: "Local live transcription with OBS captions and an editable transcript linked to the recorded audio: listen, transcribe, revisit, correct. Runs on WhisperKit on Apple Silicon and Faster-Whisper with CUDA on Linux, behind one engine-independent transcription schema."
 tech: ["Python", "Electron", "Swift", "WhisperKit", "Faster-Whisper", "CUDA", "C++", "OBS"]
 problem: "Real-time transcription tools are either cloud-dependent, high-latency, or throw away the audio once the text is produced. I wanted captions that run locally, show up cleanly in OBS, and keep a transcript I can scroll back through, replay word by word, and correct."

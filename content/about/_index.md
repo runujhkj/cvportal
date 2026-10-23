@@ -4,9 +4,9 @@ title: "About"
 
 I work mostly in the space where systems have to stay up even when they really don’t want to.
 
-Professionally, that’s Linux-based high-performance computing: Slurm, node triage, firmware and BIOS coordination, and small tools that make cluster behavior more visible. A lot of the job is turning vague complaints into diagnosable states.
+Professionally, that’s Linux-based high-performance computing: Slurm, node triage, firmware and BIOS coordination, and small tools that make cluster behavior more visible. In practice most of my time goes to the hardware side: finding failed parts, replacing them, and seeing vendor RMAs through.
 
-On my own time I build similar things at smaller scale: a scripted Kubernetes lab ([vkube](/cvportal/projects/vkube/)), a VPN-LAN router architecture ([vplan](/cvportal/projects/vplan/)), a node triage dashboard ([NodeBoard](/cvportal/projects/nodeboard/)), and a [language quiz web app, langquiz](/cvportal/projects/langquiz/), for drilling العربية / 日本語 / русский / español and more. The common thread is repeatability and visibility.
+On my own time I build similar things at smaller scale: a self-hosted LLM and generative-AI stack ([locallm](/cvportal/projects/locallm/)), a VPN-LAN router architecture ([vplan](/cvportal/projects/vplan/)), a skateboarding game ([Thrash](/cvportal/projects/thrash/)), and a [language quiz web app, langquiz](/cvportal/projects/langquiz/), for drilling العربية / 日本語 / русский / español and more. The common thread is repeatability and visibility.
 
 ---
 

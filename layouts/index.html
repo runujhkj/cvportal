@@ -18,7 +18,7 @@
     {{ range first 4 (where (where .Site.RegularPages "Section" "projects") "Params.featured" true) }}
       <article class="card">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ with .Params.status }}<span class="badge">{{ . }}</span>{{ end }}
+        {{ partial "status-badge.html" .Params.status }}
         {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
 
         {{ with .Params.tech }}

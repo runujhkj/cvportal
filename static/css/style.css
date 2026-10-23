@@ -367,6 +367,10 @@ a:hover {
   font-weight: 600;
 }
 
+.built-by-card {
+  font-style: italic;
+}
+
 .built-by {
   color: var(--muted);
   font-size: 0.92rem;

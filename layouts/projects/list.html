@@ -40,24 +40,27 @@
 </div>
 
 <div class="card-grid" id="project-grid">
+  {{/* Active work first, then by title; unknown statuses sort last. */}}
+  {{ $rank := dict "Active" 1 "In development" 2 "Prototype" 3 "Submitted" 4 }}
+  {{ $sorted := slice }}
   {{ range .Pages }}
+    {{ $sorted = $sorted | append (dict "page" . "key" (printf "%d %s" (index $rank (.Params.status | default "") | default 9) (lower .Title))) }}
+  {{ end }}
+  {{ range sort $sorted "key" }}
+    {{ with .page }}
     {{ $status := .Params.status }}
-    {{ $badgeClass := "" }}
-    {{ if eq $status "Active" }}{{ $badgeClass = "badge-active" }}
-    {{ else if eq $status "In development" }}{{ $badgeClass = "badge-in-development" }}
-    {{ else if eq $status "Prototype" }}{{ $badgeClass = "badge-prototype" }}
-    {{ else if eq $status "Submitted" }}{{ $badgeClass = "badge-submitted" }}
-    {{ end }}
     <article class="card"
       data-status="{{ $status }}"
       data-tech="{{ delimit (.Params.tech | default slice) "," }}">
       <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      {{ with $status }}<span class="badge {{ $badgeClass }}">{{ . }}</span>{{ end }}
+      {{ partial "status-badge.html" $status }}
+      {{ with .Params.built_by }}{{ with $.Site.GetPage (printf "/projects/%s" .) }}<p class="meta built-by-card">Built with {{ index (split .Title " — ") 0 }}</p>{{ end }}{{ end }}
       {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
       {{ with .Params.tech }}
         <p class="meta"><strong>Tech:</strong> {{ delimit . ", " }}</p>
       {{ end }}
     </article>
+    {{ end }}
   {{ end }}
 </div>
 
