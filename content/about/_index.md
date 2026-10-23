@@ -17,13 +17,13 @@ On my own time I build similar things at smaller scale: a self-hosted LLM and ge
 {{< photocard
     src="img/about/me.jpg"
     alt="Photo of me"
-    caption="Caption: What I look like."
+    caption="What I look like."
 >}}
 
 {{< photocard
     src="img/about/we.jpg"
     alt="Photo of me and my wife"
-    caption="Caption: What I look like standing next to the most important thing in my life."
+    caption="What I look like standing next to the most important thing in my life."
 >}}
 
 </div>

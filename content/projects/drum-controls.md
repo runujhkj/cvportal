@@ -1,7 +1,7 @@
 ---
 title: "Drum Controls — Generative Music Engine"
 forgejo_repo: "drumcontrols"
-status: "In development"
+status: "Paused"
 summary: "A Python app that turns drum-pad or keyboard input into stochastic music via MIDI and FluidSynth, producing structured-random melody rather than literal drum sounds. Its core now runs headless, separate from the PySide6 GUI."
 tech: ["Python", "PySide6", "MIDI", "FluidSynth", "TOML"]
 problem: "I wanted generative background music that responds to input without being rigidly sequenced: within 30 seconds of setup, typing or drumming should start music that ranges from structured to deliberately discordant."
@@ -16,5 +16,5 @@ next:
   - "A single authoritative clock for the rhythm engine, fixing missed metronome beats and preview drift."
   - "GUI redesign on top of drumcore: an Orchestra tab for global BPM, key, and chord progression, and an Instruments tab for per-slot overrides."
   - "Preset save/load for full session state."
-repo_status: "Private; core extracted, GUI redesign planned."
+repo_status: "Private; paused after the headless core was extracted, before the GUI redesign."
 ---

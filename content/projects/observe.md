@@ -1,6 +1,7 @@
 ---
 title: "observe — OBS Config Management"
-status: "In development"
+status: "Merged"
+merged_into: "rantology"
 summary: "A Python CLI and Qt GUI for managing OBS Studio configuration from a local repository, using a split schema format that decomposes OBS's monolithic scene JSON into versioned, human-readable files."
 tech: ["Python", "PySide6", "obs-websocket", "FFmpeg", "SSH"]
 problem: "OBS stores scene collections as a single monolithic JSON file that is difficult to version-control, diff, or share. Deploying configs to remote OBS instances and managing multi-platform streaming setups requires a lot of manual work."
@@ -17,5 +18,5 @@ current:
 next:
   - "Schema validation and conflict detection on deploy."
   - "GUI scene builder with full split-schema awareness."
-repo_status: "Private; actively developed."
+repo_status: "Private; its OBS control work continues in Rantology."
 ---

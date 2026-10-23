@@ -1,6 +1,6 @@
 ---
 title: "vkube — Local Kubernetes Lab"
-status: "In development"
+status: "Paused"
 summary: "A scripted local Kubernetes environment using QEMU and Ansible, tuned for repeatable HPC-style experiments."
 tech: ["QEMU", "Kubernetes", "Ansible", "Linux"]
 problem: "I need a reproducible lab where I can spin up and tear down multi-node Kubernetes clusters that resemble real HPC/network constraints, without depending on cloud credits or external services."
@@ -13,5 +13,5 @@ next:
   - "Full end-to-end `vkube-up` / `vkube-down` pipeline."
   - "Automated TLS / CA integration for internal services."
   - "Documentation for running vkube on both Linux and macOS hosts."
-repo_status: "Under construction; not public yet."
+repo_status: "Private; paused."
 ---

@@ -9,6 +9,12 @@
     {{ end }}
   </p>
 
+  {{ with .Params.merged_into }}
+    {{ with $.Site.GetPage (printf "/projects/%s" .) }}
+      <p class="built-by">No longer a separate project: this work is now part of <a href="{{ .RelPermalink }}">{{ index (split .Title " — ") 0 }}</a>.</p>
+    {{ end }}
+  {{ end }}
+
   {{ with .Params.built_by }}
     {{ with $.Site.GetPage (printf "/projects/%s" .) }}
       <p class="built-by">Code written by a local language model through <a href="{{ .RelPermalink }}">{{ index (split .Title " — ") 0 }}</a>, working to a spec and tests I set.</p>

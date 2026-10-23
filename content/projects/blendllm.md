@@ -1,6 +1,7 @@
 ---
 title: "blendllm — LLM-Driven Blender Pose Tool"
-status: "In development"
+status: "Merged"
+merged_into: "locallm"
 summary: "A CLI pipeline that translates natural-language pose and animation descriptions into Blender rig operations via an LLM — distilling a 1000+ bone armature down to what the model needs to know, then applying the result as a versioned JSON patch."
 tech: ["Python", "Blender", "Anthropic SDK", "Ollama"]
 problem: "Manually posing 3D characters in Blender is slow and requires detailed knowledge of rig structure. I wanted to drive poses and animation keyframes from plain text descriptions, using an LLM as the intermediary."
@@ -15,5 +16,5 @@ next:
   - "Refinement loop: re-render after patch and allow model to self-correct."
   - "Bone classification improvements beyond naming heuristics."
   - "Broader rig support beyond Rigify."
-repo_status: "Private; functional but early-stage."
+repo_status: "Private; its Blender work continues in locallm's 3D asset pipeline."
 ---

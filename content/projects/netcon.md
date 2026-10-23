@@ -1,6 +1,6 @@
 ---
 title: "netcon — iOS Network Coverage Mapper"
-status: "Submitted"
+status: "Paused"
 summary: "A self-contained iOS app that passively measures Wi-Fi and cellular network quality as the user moves and renders results as a zoomable heatmap overlay on a map. No server, no account, no third-party SDKs."
 tech: ["Swift", "SwiftUI", "CoreLocation", "CoreMotion", "CoreData", "MapKit", "CoreGraphics", "URLSession"]
 problem: "Understanding real-world network quality in specific places — a building, a commute route, a campus — requires either expensive professional tools or trusting crowd-sourced data collected by someone else. There was no simple tool for building your own spatial network quality record tied to your own movements."
@@ -17,5 +17,5 @@ next:
   - "App Store submission."
   - "Configurable probe endpoints and per-SSID filtering in UI."
   - "Tile export for offline map viewing."
-repo_status: "Private; submission materials drafted."
+repo_status: "Private; paused after the submission materials were drafted."
 ---

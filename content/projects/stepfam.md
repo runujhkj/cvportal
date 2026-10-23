@@ -1,6 +1,7 @@
 ---
 title: "stepfam — Private PKI Toolkit"
-status: "Active"
+status: "Merged"
+merged_into: "vplan"
 summary: "A two-part shell toolkit for running and operating a private ACME/mTLS certificate authority on a home LAN — stepmom manages the CA host, stepchild handles cert issuance, deployment, and renewal from any machine."
 tech: ["bash", "step-ca", "Docker", "ACME", "mTLS", "nftables", "Caddy", "Python"]
 problem: "Self-hosting services with real TLS — without browser warnings, without exposing anything to the public internet, and without letting the CA provisioner password travel outside the CA host — requires a private PKI that is easy to bootstrap, operate, and rotate. Most DIY PKI setups are brittle one-time setups with no clean teardown or renewal story."
@@ -15,5 +16,5 @@ current:
 next:
   - "Automated cert expiry monitoring with alerting."
   - "Inventory diff tooling for auditing deployed vs. expected certs."
-repo_status: "Private; git submodule of home network monorepo."
+repo_status: "Private; now a git submodule of the vplan repository."
 ---

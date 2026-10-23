@@ -207,6 +207,19 @@ a:hover {
   border-color: rgba(167, 139, 250, 0.25);
 }
 
+.badge-paused {
+  background: rgba(156, 163, 175, 0.12);
+  color: #9ca3af;
+  border-color: rgba(156, 163, 175, 0.25);
+}
+
+.badge-merged {
+  background: transparent;
+  color: #9ca3af;
+  border-color: rgba(156, 163, 175, 0.35);
+  border-style: dashed;
+}
+
 /* Filter bar */
 
 .filter-bar {
