@@ -7,3 +7,4 @@ AGENTS.md
 facts/
 __pycache__/
 private/
+build/

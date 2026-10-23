@@ -1,1 +1,0 @@
-content/resume/_index.md

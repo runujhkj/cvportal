@@ -1,11 +1,13 @@
-.PHONY: resume resume-hpc private-resumes serve scan facts forgejo-check
+.PHONY: resumes serve scan facts forgejo-check
 
-resume:
-	cd static/resume && pandoc ../../resume.md -o jack-resume.html --css=resume.css --standalone --from markdown -M title="" -M pagetitle="Jeffrey Hannon Jr. — Resume"
-	swift scripts/html2pdf.swift static/resume/jack-resume.html static/resume/jack-resume.pdf 0.45 0.6
+HTML2PDF := build/html2pdf
 
-resume-hpc:
-	cd static/resume && pandoc ../../resume-hpc.md -o jack-resume-hpc.pdf --standalone --from markdown -V geometry:margin=0.6in -V fontsize=10pt -M title="" -H ../../pandoc/resume-hpc.tex
+$(HTML2PDF): scripts/html2pdf.swift
+	mkdir -p build && swiftc -O $< -o $@
+
+# Every resume, public and private, through one renderer. See scripts/build_resumes.sh.
+resumes: $(HTML2PDF)
+	scripts/build_resumes.sh $(HTML2PDF)
 
 serve:
 	hugo server --port 1313
@@ -18,12 +20,3 @@ facts:
 
 forgejo-check:
 	python3 scripts/forgejo.py
-
-# Builds every private/resume-*.md (gitignored, never published) to HTML and PDF beside it.
-private-resumes:
-	@for md in private/resume-*.md; do \
-		[ -e "$$md" ] || { echo "no private/resume-*.md files"; exit 1; }; \
-		base=$${md%.md}; \
-		pandoc "$$md" -o "$$base.html" --css=static/resume/resume.css --embed-resources --standalone --from markdown -M title="" -M pagetitle="Jeffrey Hannon Jr. — Resume" && \
-		swift scripts/html2pdf.swift "$$base.html" "$$base.pdf" 0.45 0.6 && echo "built $$base.pdf"; \
-	done

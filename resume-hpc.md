@@ -1,1 +1,0 @@
-content/resume-hpc/_index.md

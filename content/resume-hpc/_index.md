@@ -21,8 +21,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 ## Experience
 
-### Computer Specialist I — High-Performance Computing Center
-*Mississippi State University, Starkville, MS* · 2022–Present
+### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
 
 - Administer and triage compute nodes across 4 Slurm clusters ranging from 96 to 1,800 nodes (16 GPU nodes, 16 bigmem nodes) under Rocky Linux; routine work includes drain management, hardware diagnosis, node reboots, and vendor RMA coordination.
 - Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams, including IB adapter firmware managed through OpenManage Enterprise; run validation jobs and document behavioral changes.
@@ -30,8 +29,7 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 - Built and maintain `bad`, a Python TUI used daily for personal node triage, integrating Slurm, NHC, and iDRAC/RACADM into a single session with live output capture and drainlist tracking.
 - Handle roughly 10–20 hardware failure events per month on clusters serving about 5,000 researchers and staff.
 
-### Research Computing Administrator (Freelance / Contract)
-*Remote* · 2023–2024
+### Research Computing Administrator (Freelance / Contract) · *Remote · 2023–2024*
 
 - Lead administrator and sole technical owner of the software environment for a genomics research group at Fox Chase Cancer Center, working directly with a small team of researchers.
 - Built and maintained a ~40-package bioinformatics stack using Spack, with manual source builds where Spack couldn't cover a tool; resolved dependency conflicts and build failures, often from incomplete upstream documentation.
@@ -39,15 +37,15 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 ## Selected Projects
 
-**bad — HPC Administration Terminal UI** (Python, curses, PTY, pytest): ~20,400 lines across 115 modules, with 69 pytest files including PTY simulation for integration-level testing.
+### bad — HPC Administration Terminal UI · *Python, curses, PTY, pytest*
 
-### Home Network / Infrastructure Automation
-**Tech:** Linux, WireGuard, iptables, dnsmasq, Pi-hole, step-ca, Docker, Python, Bash
+~20,400 lines across 115 modules, with 69 pytest files including PTY simulation for integration-level testing.
+
+### Home Network / Infrastructure Automation · *Linux, WireGuard, iptables, Pi-hole, step-ca, Docker*
 
 - Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation.
 - Built stepfam: a PKI toolkit managing a private ACME CA (step-ca) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation, integrated with Caddy for automatic TLS on self-hosted services.
 
-## Certifications / Education
+## Education / Certifications
 
-**CompTIA A+** · Awarded 11/2025  
-**B.S. Computer Science** · Mississippi State University · 2021
+**B.S. Computer Science**, Mississippi State University, 2021 · **CompTIA A+**, 2025

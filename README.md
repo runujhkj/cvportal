@@ -5,14 +5,15 @@ layouts, and assets in `static/`. The site deploys to GitHub Pages via CI.
 
 ## Requirements
 - Hugo (CI pins `0.162.1`).
-- Pandoc with a LaTeX engine (HPC resume PDF), and the Swift toolchain from Xcode's command line tools (prints the general resume's HTML to PDF with the system WebKit; macOS only).
+- Pandoc, and the Swift toolchain from Xcode's command line tools (resume PDFs are printed with the system WebKit; macOS only).
 
 ## Project Structure
 - `content/`: Site content in Markdown (projects, about, resume).
 - `layouts/`: Hugo templates and shortcodes.
 - `static/`: Static assets (CSS, images, resume artifacts).
 - `public/`: Generated site output (do not edit by hand).
-- `resume.md`, `resume-hpc.md`: symlinks to `content/resume/_index.md` and `content/resume-hpc/_index.md`, the single source for each resume variant.
+- `content/resume/_index.md`, `content/resume-hpc/_index.md`: the public resume variants (automation, HPC). Each file is both the web page and the PDF source.
+- `private/`: gitignored, unpublished resume variants (`private/resume-<variant>.md`).
 - `scripts/`: `scan_projects.py` (find project pages to add or update), `collect_facts.py` (local fact files), `collect_stats.py` (Forgejo repo stats for the deploy workflow), and `forgejo.py` (shared API access).
 
 ## Development
@@ -27,16 +28,24 @@ hugo --minify
 ```
 
 ## Resume Workflow
-Each resume variant is one Markdown file under `content/`: Hugo renders it on the
-site, and pandoc builds the downloadable copy from it through the root symlink.
-Edit the file under `content/` (or the symlink; they are the same file), then:
+Every resume, public or private, is one Markdown file and is built the same way:
 
 ```bash
-make resume       # static/resume/jack-resume.html and jack-resume.pdf (scripts/html2pdf.swift prints the HTML)
-make resume-hpc   # static/resume/jack-resume-hpc.pdf (pandoc + LaTeX)
+make resumes
 ```
 
-Commit the regenerated files under `static/resume/`; the site links to them.
+`scripts/build_resumes.sh` runs pandoc to standalone HTML with
+`static/resume/resume.css`, then `scripts/html2pdf.swift` (compiled once to
+`build/html2pdf`) prints it to a US Letter PDF named `resume-<variant>.pdf`:
+
+| Variant | Source | PDF |
+|---|---|---|
+| automation (site "Resume") | `content/resume/_index.md` | `static/resume/resume-automation.pdf` |
+| hpc | `content/resume-hpc/_index.md` | `static/resume/resume-hpc.pdf` |
+| any private variant | `private/resume-<variant>.md` | `private/resume-<variant>.pdf` |
+
+Commit the regenerated public PDFs; the site links to them. Nothing under
+`private/` is tracked or published.
 
 ## Finding Stale or Missing Project Pages
 ```bash
