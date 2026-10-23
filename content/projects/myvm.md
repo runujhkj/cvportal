@@ -1,7 +1,6 @@
 ---
 title: "myvm — Lightweight macOS VM Launcher"
 status: "In development"
-featured: true
 summary: "A PySide6 GUI and CLI for running QEMU virtual machines on Apple Silicon from YAML profiles, with cloud-init provisioning, bridged networking, serial boot logs, and a check that decides whether a VM is fit to be the golden image dev VMs are cloned from."
 tech: ["Python", "PySide6", "QEMU", "QMP", "cloud-init", "macOS", "pytest"]
 problem: "I needed a quick, reproducible way to launch and provision VMs on a Mac without maintaining dozens of shell scripts, and a way to trust a base image before cloning development VMs from it."
@@ -12,7 +11,7 @@ current:
   - "Bridged networking for Linux guests via socket_vmnet, alongside user-mode networking with SSH forwarding."
   - "Serial console logging of guest boots for diagnostics."
   - "bless: checks whether a running VM is fit to be a golden dev image, recording the package manifest for each network mode."
-  - "Experimental macOS guest presets using macosvm."
+  - "Experimental macOS guests through macosvm, portable between Macs."
 next:
   - "Build the clone-from-golden-image workflow on top of bless."
   - "Snapshot workflows and a profile-editing UI."

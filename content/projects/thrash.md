@@ -12,7 +12,8 @@ current:
   - "Five greybox level drafts plus an arena: a suburb, an industrial estate, a dead mall, a spaceflight centre, and a reservoir."
   - "In-game level editor: ground brushes, placeable pieces, a mould tool, gamepad support, and a test mode."
   - "Playtest tooling: test spots, time control, input overlay and record/replay, built-game logs, and frame-by-frame comparison against reference footage."
-  - "1,160 play mode tests; 37 written-up playtest rounds."
+  - "Linux player builds, each stamped with its build, and a publish step."
+  - "1,160 play mode tests; 46 written-up playtest rounds."
 next:
   - "Finish the new pools and bring them to every level."
   - "One level whose lines and gaps are designed and proven, not a first draft."
