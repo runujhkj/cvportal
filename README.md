@@ -64,6 +64,23 @@ make share-resumes
 Every variant is built with the address on its own line into `private/share/`,
 which is gitignored. The site and `make resumes` never include it.
 
+## Cover Letters and Applications
+Everything here lives in `private/applications/`, which is gitignored.
+
+```bash
+make letter COMPANY="Acme" TITLE="Data Center Technician"   # new folder: private/applications/acme/data-center-technician/
+make letters                                                # build every letter.md into cover-letter.pdf
+make applications                                           # tracker table; also writes private/applications/INDEX.md
+```
+
+Paste only the body of the letter into `letter.md`, below the marker line. The
+header (name, address, phone, email), date, company, role line, greeting and
+sign-off are added when it is built, in the resume style with wider margins.
+Track each application in its `job.toml`: status (drafted, applied,
+interviewing, offer, rejected, withdrawn), date applied, which resume you sent,
+the posting link, a named recipient, and notes. Name and signature come from
+`data/contact.toml`, the address from `private/contact.toml`.
+
 ## Finding Stale or Missing Project Pages
 ```bash
 make scan

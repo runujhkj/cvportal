@@ -2,6 +2,8 @@
 # which fields to show with {{% contact "phone,email,github,website" %}}.
 # A postal address never goes here: it lives in the gitignored private/contact.toml
 # and is only used by `make share-resumes`.
+name = "Jeffrey \"Jack\" Hannon Jr."   # heading on cover letters
+signature = "Jeffrey Hannon Jr."    # sign-off on cover letters
 phone = "+1 (251)-753-1915"
 email = "runujhkj@icloud.com"
 github = "github.com/runujhkj"

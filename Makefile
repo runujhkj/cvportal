@@ -1,4 +1,4 @@
-.PHONY: resumes share-resumes serve scan facts forgejo-check
+.PHONY: resumes share-resumes letter letters applications serve scan facts forgejo-check
 
 HTML2PDF := build/html2pdf
 
@@ -13,6 +13,16 @@ resumes: $(HTML2PDF)
 # Nothing it writes is tracked or published.
 share-resumes: $(HTML2PDF)
 	scripts/build_resumes.sh $(HTML2PDF) --share
+
+# Cover letters and the application tracker, all under the gitignored private/applications/.
+letter:
+	@python3 scripts/letters.py new "$(COMPANY)" "$(TITLE)"
+
+letters: $(HTML2PDF)
+	@python3 scripts/letters.py build
+
+applications:
+	@python3 scripts/letters.py list
 
 serve:
 	hugo server --port 1313
