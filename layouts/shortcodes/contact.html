@@ -1,0 +1,11 @@
+{{- /* Usage: {{% contact "phone,email,github,website" %}} — fields from data/contact.toml, joined with " · ". */ -}}
+{{- $parts := slice -}}
+{{- range split (.Get 0) "," -}}
+  {{- $field := trim . " " -}}
+  {{- with index site.Data.contact $field -}}
+    {{- if eq $field "email" -}}{{- $parts = $parts | append (printf "[%s](mailto:%s)" . .) -}}
+    {{- else if in (slice "github" "website") $field -}}{{- $parts = $parts | append (printf "[%s](https://%s)" . .) -}}
+    {{- else -}}{{- $parts = $parts | append . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- delimit $parts " · " -}}

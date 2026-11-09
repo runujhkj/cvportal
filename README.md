@@ -47,6 +47,23 @@ make resumes
 Commit the regenerated public PDFs; the site links to them. Nothing under
 `private/` is tracked or published.
 
+### Contact details
+
+Phone, email, GitHub and website live in `data/contact.toml`, the one place to
+change them. Resumes and the contact page show them through a placeholder that
+names the fields to show, e.g. `{{% contact "phone,email,github,website" %}}`;
+Hugo fills it in on the site and `scripts/expand_contact.py` fills it in for PDFs.
+
+A postal address never goes in that file. To send someone a resume with your
+address, put it in the gitignored `private/contact.toml` (`address = "..."`) and run:
+
+```bash
+make share-resumes
+```
+
+Every variant is built with the address on its own line into `private/share/`,
+which is gitignored. The site and `make resumes` never include it.
+
 ## Finding Stale or Missing Project Pages
 ```bash
 make scan

@@ -6,7 +6,7 @@ title: "Resume (HPC Systems)"
 
 Linux / HPC Systems Engineering · Slurm · Lustre · Automation
 
-+1 (251)-753-1915 · runujhkj@icloud.com · github.com/runujhkj · runujhkj.github.io/cvportal
+{{% contact "phone,email,github,website" %}}
 
 ## Summary
 
