@@ -44,7 +44,8 @@ notes = ""
 
 LETTER_TEMPLATE = f"""<!-- Cover letter body for {{company}}, {{title}}.
 The header, date, role line, greeting and sign-off are added when it is built;
-write only the paragraphs. Blank lines separate paragraphs. -->
+write only the paragraphs. Each line is a paragraph unless you use blank lines
+between paragraphs, in which case normal Markdown rules apply. -->
 {BODY_MARKER}
 
 """
@@ -88,6 +89,10 @@ def letter_markdown(folder):
     body = raw.split(BODY_MARKER, 1)[-1].strip()
     if not body:
         return None
+    if "\n\n" not in body:
+        # Pasted text usually separates paragraphs with single line breaks, which
+        # Markdown would join into one block; treat each line as a paragraph.
+        body = "\n\n".join(line.strip() for line in body.splitlines() if line.strip())
     fields = [f.strip() for f in job.get("contact", "phone,email").split(",") if f.strip()]
     contact_line = " · ".join(str(contact[f]) for f in fields if contact.get(f) and f != "address")
     when = job.get("letter_date") or date.today()
