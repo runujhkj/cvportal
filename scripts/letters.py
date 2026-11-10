@@ -5,7 +5,7 @@
   letters.py build [FOLDER...]   build each letter.md into <Name>-Cover-Letter.pdf beside it, styled like the resumes
   letters.py list                print the tracker and write private/applications/INDEX.md
 
-letter.md holds only the body you paste in. The header (name, address, phone, email),
+letter.md holds only the body you paste in. The header (name, city, phone, email),
 date, company, role line, greeting and sign-off come from job.toml, data/contact.toml
 and private/contact.toml.
 """
@@ -29,8 +29,7 @@ BODY_MARKER = "<!-- Paste the body of the letter below this line. -->"
 
 
 def pdf_name():
-    signature = load_toml(ROOT / "data" / "contact.toml").get("signature", "Cover Letter")
-    return signature.replace(".", "").replace(" ", "-") + "-Cover-Letter.pdf"
+    return load_toml(ROOT / "data" / "contact.toml").get("file_name", "Cover") + "-Cover-Letter.pdf"
 
 JOB_TEMPLATE = '''# One application. Edit freely; `make applications` reads this file.
 company = "{company}"
@@ -43,7 +42,8 @@ link = ""                 # job posting URL
 recipient = ""            # a named person, if the posting gives one
 greeting = "Dear Hiring Manager,"
 letter_date = ""          # date printed on the letter; empty means the day it is built
-contact = "phone,email"   # fields from data/contact.toml under your name and address
+contact = "location,phone,email"   # fields from data/contact.toml under your name
+street_address = false    # true adds the street address from private/contact.toml, if a posting asks for it
 notes = ""
 '''
 
@@ -87,7 +87,7 @@ def cmd_new(company, title):
 def letter_markdown(folder):
     job = load_toml(folder / "job.toml")
     contact = load_toml(ROOT / "data" / "contact.toml")
-    address = load_toml(PRIVATE_CONTACT).get("address", "").strip()
+    address = load_toml(PRIVATE_CONTACT).get("address", "").strip() if job.get("street_address") else ""
     if "FILL IN" in address:
         address = ""
     raw = (folder / "letter.md").read_text(encoding="utf-8")
@@ -98,7 +98,7 @@ def letter_markdown(folder):
         # Pasted text usually separates paragraphs with single line breaks, which
         # Markdown would join into one block; treat each line as a paragraph.
         body = "\n\n".join(line.strip() for line in body.splitlines() if line.strip())
-    fields = [f.strip() for f in job.get("contact", "phone,email").split(",") if f.strip()]
+    fields = [f.strip() for f in job.get("contact", "location,phone,email").split(",") if f.strip()]
     contact_line = " · ".join(str(contact[f]) for f in fields if contact.get(f) and f != "address")
     when = job.get("letter_date") or date.today()
     if not isinstance(when, date):

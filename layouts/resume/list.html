@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="content">
   <p>
-    <a class="btn" href="{{ printf "resume/automation/%s-Resume.pdf" (replace (replace site.Data.contact.signature "." "") " " "-") | absURL }}" target="_blank" rel="noopener">
+    <a class="btn" href="{{ printf "resume/automation/%s-Resume.pdf" site.Data.contact.file_name | absURL }}" target="_blank" rel="noopener">
       Download PDF
     </a>
   </p>

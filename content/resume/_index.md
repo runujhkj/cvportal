@@ -14,7 +14,7 @@ HPC systems technician at Mississippi State University since 2022, and the one w
 
 ## Experience
 
-### Computer Specialist I, HPC Center *2022–Present* {.job}
+### Computer Specialist I, HPC Center *Nov 2022 – Present* {.job}
 
 Mississippi State University, Starkville, MS
 
@@ -22,7 +22,7 @@ Mississippi State University, Starkville, MS
 - Wrote `bad`, a Python terminal tool I use for every repair. It pulls Slurm drain state, NHC results, iDRAC logs and InfiniBand checks into one place, and it generates the monthly unplanned-outage report.
 - Update firmware through OpenManage Enterprise when a node falls behind baseline, and run a regression test before it goes back into service.
 
-### Research Computing Administrator (Contract) *2023–2024* {.job}
+### Research Computing Administrator (Contract) *May 2023 – Mar 2024* {.job}
 
 Fox Chase Cancer Center, remote
 

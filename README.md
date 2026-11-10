@@ -37,7 +37,7 @@ make resumes
 `scripts/build_resumes.sh` runs pandoc to standalone HTML with
 `static/resume/resume.css`, then `scripts/html2pdf.swift` (compiled once to
 `build/html2pdf`) prints it to a US Letter PDF. Every PDF is named after you
-(`Jeffrey-Hannon-Jr-Resume.pdf`, from `signature` in `data/contact.toml`), so each
+(`Jack-Hannon-Resume.pdf`, from `file_name` in `data/contact.toml`), so each
 variant gets its own folder:
 
 | Variant | Source | PDF |

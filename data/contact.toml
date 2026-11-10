@@ -1,9 +1,10 @@
 # Public contact details, shown on the site and in every resume. Each page picks
 # which fields to show with {{% contact "phone,email,github,website" %}}.
 # A postal address never goes here: it lives in the gitignored private/contact.toml
-# and is only used by `make share-resumes`.
+# and is only used by `make share-resumes` and letters that ask for it.
 name = "Jeffrey \"Jack\" Hannon Jr."   # heading on cover letters
 signature = "Jeffrey Hannon Jr."    # sign-off on cover letters
+file_name = "Jack-Hannon"           # PDFs are <file_name>-Resume.pdf and <file_name>-Cover-Letter.pdf
 phone = "+1 (251)-753-1915"
 email = "runujhkj@icloud.com"
 github = "github.com/runujhkj"

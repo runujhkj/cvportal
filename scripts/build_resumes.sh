@@ -3,8 +3,8 @@
 # data/contact.toml, pandoc to standalone HTML, then the system WebKit
 # (scripts/html2pdf.swift) to US Letter PDF.
 #
-# Each PDF is named after the person (e.g. Jeffrey-Hannon-Jr-Resume.pdf, from the
-# signature in data/contact.toml), so every variant gets its own folder.
+# Each PDF is named after the person (<file_name>-Resume.pdf, from data/contact.toml),
+# so every variant gets its own folder.
 #
 # Normal build: public variants come from content/ and land in static/resume/<variant>/,
 # where the site links to them; private variants come from the gitignored private/
@@ -17,7 +17,7 @@ cd "$(dirname "$0")/.."
 html2pdf=${1:-build/html2pdf}
 mode=${2:-}
 css=static/resume/resume.css
-pdf=$(python3 -c 'import tomllib; c = tomllib.load(open("data/contact.toml", "rb")); print(c["signature"].replace(".", "").replace(" ", "-"))')-Resume.pdf
+pdf=$(python3 -c 'import tomllib; print(tomllib.load(open("data/contact.toml", "rb"))["file_name"])')-Resume.pdf
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 

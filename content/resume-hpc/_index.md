@@ -14,7 +14,7 @@ Hardware and systems technician at Mississippi State University's HPC Center sin
 
 ## Experience
 
-### Computer Specialist I, HPC Center *2022–Present* {.job}
+### Computer Specialist I, HPC Center *Nov 2022 – Present* {.job}
 
 Mississippi State University, Starkville, MS
 
@@ -26,7 +26,7 @@ Mississippi State University, Starkville, MS
 - Bring nodes back after cooling and power failures, and restart LNet when a node drops its Lustre mounts.
 - Wrote `bad`, a Python terminal tool I use for every repair. It pulls Slurm drain state, NHC results, iDRAC logs and InfiniBand checks into one place, keeps per-node notes, and generates the monthly unplanned-outage report. Coworkers get its output when they're tracing a failure.
 
-### Research Computing Administrator (Contract) *2023–2024* {.job}
+### Research Computing Administrator (Contract) *May 2023 – Mar 2024* {.job}
 
 Fox Chase Cancer Center, remote
 
