@@ -123,3 +123,17 @@ li {
     text-decoration: none;
   }
 }
+
+/* Job headings: title on the left, dates on the right, employer on the next line */
+
+h3.job em {
+  float: right;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h3.job + p {
+  margin-top: 0;
+  color: #4b5563;
+  font-style: italic;
+}

@@ -442,3 +442,18 @@ a:hover {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+/* Resume job headings: dates on the right, employer on the next line */
+
+.content h3.job em {
+  float: right;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.content h3.job + p {
+  margin-top: 0;
+  font-style: italic;
+  color: var(--muted);
+}

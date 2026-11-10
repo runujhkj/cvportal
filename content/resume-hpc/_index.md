@@ -4,44 +4,50 @@ title: "Resume (HPC Systems)"
 
 # Jeffrey "Jack" Hannon Jr.
 
-HPC Systems & Hardware · Slurm · Dell PowerEdge · InfiniBand · Python
+HPC Hardware and Systems Technician
 
 {{% contact "location,phone,email,website" %}}
 
 ## Summary
 
-HPC systems technician at Mississippi State University's HPC Center since 2022, keeping the compute nodes of four Slurm clusters (96 to 1,800 nodes, about 5,000 users) in service. Takes each failed node from report back to production: isolates the fault, replaces the part, works the Dell case to closure, and brings firmware up to baseline. Built the Python tool used for every repair.
-
-## Skills
-
-**HPC & Hardware:** Slurm, Lustre clients (LNet), NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, BIOS/firmware baselines, InfiniBand cabling (HCAs, DAC, switch ports), Dell support cases and TSR logs, Linux (Rocky, Debian, Ubuntu)  
-**Automation:** Python, Bash, Ansible, Git, pytest, ReFrame  
-**Networking:** DNS/DHCP (dnsmasq, Pi-hole), iptables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
-**Other:** QEMU/KVM, Docker, cloud-init
+Hardware and systems technician at Mississippi State University's HPC Center since 2022. I keep the compute nodes on four Slurm clusters running, which mostly means finding the failed part, replacing it, and getting Dell to send the right replacement. I also wrote the Python tool I use for every repair.
 
 ## Experience
 
-### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
+### Computer Specialist I, HPC Center *2022–Present* {.job}
 
-- Repair 10–20 hardware failures a month across four clusters: isolate the fault by moving DIMMs, CPUs and drives between nodes, then replace memory, CPUs, system boards, boot SSDs or full chassis internals and return the node to the compute pool, with its failure cause and dated notes on record.
-- Open and close Dell support cases: collect TSR logs, ship failed parts back, and carry cases through repeat failures and dead-on-arrival replacements.
-- Trace InfiniBand link flaps to the physical layer by swapping DAC cables, HCAs and switch ports.
-- Bring nodes that fall behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.
-- Recover nodes after facility events such as a cooling-unit failure and chassis power faults, using power drains and sled-by-sled testing; restart Lustre LNet on nodes that drop off the filesystem.
-- Built `bad`, a Python terminal tool (~20,400 lines, 69 test files) that runs each step of a repair in one session: Slurm drain state, NHC, iDRAC event logs and reboots, InfiniBand fabric checks, and per-node repair notes. It also generates the monthly unplanned-outage reports (incidents, node-minutes down, which outages were worked); its output goes to coworkers for failure tracing.
+Mississippi State University, Starkville, MS
 
-### Research Computing Administrator (Contract) · *Remote · 2023–2024*
+- Diagnose and repair 10–20 failed nodes a month across four Slurm clusters (96 to 1,800 nodes) used by about 5,000 researchers and staff.
+- Swap memory, CPUs and drives between nodes to find the bad part, then replace whatever failed, from a single DIMM up to a system board or a whole chassis. Every node gets a recorded failure cause and dated notes.
+- Run Dell support cases start to finish, including the long ones where the first replacement doesn't fix it or arrives dead.
+- Track down InfiniBand link flaps by swapping DAC cables, HCAs and switch ports.
+- Update firmware through OpenManage Enterprise when a node falls behind baseline, and run a regression test before it goes back into service. Compare BIOS settings against a known-good node when something looks off.
+- Bring nodes back after cooling and power failures, and restart LNet when a node drops its Lustre mounts.
+- Wrote `bad`, a Python terminal tool I use for every repair. It pulls Slurm drain state, NHC results, iDRAC logs and InfiniBand checks into one place, keeps per-node notes, and generates the monthly unplanned-outage report. Coworkers get its output when they're tracing a failure.
 
-- Sole administrator of the software environment for a genomics research group at Fox Chase Cancer Center, working directly with the lead researcher.
-- Built and kept current a ~40-package bioinformatics stack with Spack, plus source builds where Spack fell short; documented every build so the environment could be rebuilt, and kept legacy versions for existing workflows.
+### Research Computing Administrator (Contract) *2023–2024* {.job}
 
-## Selected Projects
+Fox Chase Cancer Center, remote
 
-### Home Network / Infrastructure Automation · *Linux, WireGuard, iptables, Pi-hole, step-ca, Docker*
+- Set up and maintained about 40 bioinformatics packages for a genomics research group, mostly with Spack and by hand where Spack couldn't build something.
+- Worked directly with the lead researcher, wrote down how every build was done, and kept older versions around for workflows that still needed them.
 
-- Built vplan: a device-management toolkit generating Pi-hole DHCP reservations and DNS records idempotently from a single source-of-truth config, with full DNS postcheck validation.
-- Built stepfam: a PKI toolkit managing a private ACME CA (step-ca) with inventory-driven cert issuance, SSH-based deployment, trust-chain distribution, and CA rotation, integrated with Caddy for automatic TLS on self-hosted services.
+## Skills
 
-## Education / Certifications
+**HPC and hardware:** Slurm, Lustre clients, NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, InfiniBand cabling, BIOS and firmware  
+**Linux:** Rocky, Debian, Ubuntu  
+**Scripting:** Python, Bash, Ansible, Git, pytest, ReFrame  
+**Home lab:** DNS/DHCP, iptables, WireGuard, step-ca, Docker, QEMU/KVM
 
-**B.S. Computer Science**, Mississippi State University, 2021 · **CompTIA A+**, 2025
+## Projects
+
+### Home network *Personal* {.job}
+
+- vplan manages my home network's DNS and DHCP from one config file, along with WireGuard remote access and single sign-on.
+- stepfam runs a private certificate authority (step-ca) that issues and deploys TLS certificates to my self-hosted services.
+
+## Education
+
+**B.S. Computer Science**, Mississippi State University, 2021  
+**CompTIA A+**, 2025
