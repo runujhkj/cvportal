@@ -23,7 +23,7 @@ HPC systems technician at Mississippi State University's HPC Center since 2022, 
 
 ### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
 
-- Repair 10–20 hardware failures a month across four clusters: isolate the fault by moving DIMMs, CPUs and drives between nodes, then replace memory, CPUs, system boards, boot SSDs or full chassis internals and return the node to the compute pool.
+- Repair 10–20 hardware failures a month across four clusters: isolate the fault by moving DIMMs, CPUs and drives between nodes, then replace memory, CPUs, system boards, boot SSDs or full chassis internals and return the node to the compute pool, with its failure cause and dated notes on record.
 - Open and close Dell support cases: collect TSR logs, ship failed parts back, and carry cases through repeat failures and dead-on-arrival replacements.
 - Trace InfiniBand link flaps to the physical layer by swapping DAC cables, HCAs and switch ports.
 - Bring nodes that fall behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.

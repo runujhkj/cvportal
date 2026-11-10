@@ -23,7 +23,7 @@ HPC systems technician at a university computing center since 2022 (four Slurm c
 
 ### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
 
-- Keep compute nodes in service across 4 Slurm clusters of 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): diagnose and repair 10–20 hardware failures a month, from Slurm drain to Dell RMA closure.
+- Keep compute nodes in service across 4 Slurm clusters of 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): diagnose and repair 10–20 hardware failures a month, from Slurm drain to Dell RMA closure, recording each node's failure cause and dated notes.
 - Built `bad`, a Python terminal tool (~20,400 lines, 69 pytest files) used for every repair: Slurm drain state, NHC, iDRAC/RACADM, InfiniBand fabric checks and per-node notes. It also generates the monthly unplanned-outage reports (incidents, node-minutes down, which outages were worked).
 - Bring nodes behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.
 
