@@ -6,7 +6,7 @@ title: "Resume"
 
 Systems Automation · Python Tooling · Self-Hosted AI Infrastructure
 
-{{% contact "phone,email,github,website" %}}
+{{% contact "location,phone,email,website" %}}
 
 ## Summary
 

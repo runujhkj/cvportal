@@ -14,7 +14,7 @@ HPC systems technician at Mississippi State University's HPC Center since 2022, 
 
 ## Skills
 
-**HPC & Hardware:** Slurm, Lustre, NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, BIOS/firmware baselines, InfiniBand cabling (HCAs, DAC, switch ports), Dell support cases and TSR logs, Linux (Rocky, Debian, Ubuntu)  
+**HPC & Hardware:** Slurm, Lustre clients (LNet), NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, BIOS/firmware baselines, InfiniBand cabling (HCAs, DAC, switch ports), Dell support cases and TSR logs, Linux (Rocky, Debian, Ubuntu)  
 **Automation:** Python, Bash, Ansible, Git, pytest, ReFrame  
 **Networking:** DNS/DHCP (dnsmasq, Pi-hole), iptables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
 **Other:** QEMU/KVM, Docker, cloud-init
@@ -27,8 +27,8 @@ HPC systems technician at Mississippi State University's HPC Center since 2022, 
 - Open and close Dell support cases: collect TSR logs, ship failed parts back, and carry cases through repeat failures and dead-on-arrival replacements.
 - Trace InfiniBand link flaps to the physical layer by swapping DAC cables, HCAs and switch ports.
 - Bring nodes that fall behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.
-- Recover nodes after facility events such as a cooling-unit failure and chassis power faults, using power drains and sled-by-sled testing.
-- Built `bad`, a Python terminal tool (~20,400 lines, 69 test files) that runs each step of a repair in one session: Slurm drain state, NHC, iDRAC event logs and reboots, and per-node repair notes. Its reports go to coworkers for failure tracing.
+- Recover nodes after facility events such as a cooling-unit failure and chassis power faults, using power drains and sled-by-sled testing; restart Lustre LNet on nodes that drop off the filesystem.
+- Built `bad`, a Python terminal tool (~20,400 lines, 69 test files) that runs each step of a repair in one session: Slurm drain state, NHC, iDRAC event logs and reboots, InfiniBand fabric checks, and per-node repair notes. It also generates the monthly unplanned-outage reports (incidents, node-minutes down, which outages were worked); its output goes to coworkers for failure tracing.
 
 ### Research Computing Administrator (Contract) · *Remote · 2023–2024*
 
