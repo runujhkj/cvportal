@@ -4,17 +4,17 @@ title: "Resume (HPC Systems)"
 
 # Jeffrey "Jack" Hannon Jr.
 
-Linux / HPC Systems Engineering · Slurm · Lustre · Automation
+HPC Systems & Hardware · Slurm · Dell PowerEdge · InfiniBand · Python
 
-{{% contact "phone,email,github,website" %}}
+{{% contact "location,phone,email,website" %}}
 
 ## Summary
 
-Systems administrator with four years operating HPC clusters across four Slurm deployments — 96 to 1,800 nodes — on Rocky Linux, with Lustre parallel filesystems and Dell iDRAC/OFED hardware management. Day-to-day scope spans node triage, drain management, firmware and BIOS coordination, OFED and IB adapter firmware upgrades, and vendor RMA at fleet scale. Maintains Python and Bash tooling for fleet visibility, automated health assessment, and operational workflow reduction.
+HPC systems technician at Mississippi State University's HPC Center since 2022, keeping the compute nodes of four Slurm clusters (96 to 1,800 nodes, about 5,000 users) in service. Takes each failed node from report back to production: isolates the fault, replaces the part, works the Dell case to closure, and brings firmware up to baseline. Built the Python tool used for every repair.
 
 ## Skills
 
-**HPC & Systems:** Slurm, Lustre, OFED, NHC, Dell iDRAC/RACADM, BIOS/firmware, RMA workflow, Linux (Rocky, Debian, Ubuntu)  
+**HPC & Hardware:** Slurm, Lustre, NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, BIOS/firmware baselines, InfiniBand cabling (HCAs, DAC, switch ports), Dell support cases and TSR logs, Linux (Rocky, Debian, Ubuntu)  
 **Automation:** Python, Bash, Ansible, Git, pytest, ReFrame  
 **Networking:** DNS/DHCP (dnsmasq, Pi-hole), iptables, WireGuard, policy routing, PKI/TLS (step-ca, ACME, mTLS)  
 **Other:** QEMU/KVM, Docker, cloud-init
@@ -23,23 +23,19 @@ Systems administrator with four years operating HPC clusters across four Slurm d
 
 ### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
 
-- Administer and triage compute nodes across 4 Slurm clusters ranging from 96 to 1,800 nodes (16 GPU nodes, 16 bigmem nodes) under Rocky Linux; routine work includes drain management, hardware diagnosis, node reboots, and vendor RMA coordination.
-- Coordinate firmware, BIOS, and OFED upgrades with Dell and internal teams, including IB adapter firmware managed through OpenManage Enterprise; run validation jobs and document behavioral changes.
-- Maintain Python and Bash tooling to surface Slurm state, drain reasons, Lustre filesystem usage, and node health signals across the fleet.
-- Built and maintain `bad`, a Python TUI used daily for personal node triage, integrating Slurm, NHC, and iDRAC/RACADM into a single session with live output capture and drainlist tracking.
-- Handle roughly 10–20 hardware failure events per month on clusters serving about 5,000 researchers and staff.
+- Repair 10–20 hardware failures a month across four clusters: isolate the fault by moving DIMMs, CPUs and drives between nodes, then replace memory, CPUs, system boards, boot SSDs or full chassis internals and return the node to the compute pool.
+- Open and close Dell support cases: collect TSR logs, ship failed parts back, and carry cases through repeat failures and dead-on-arrival replacements.
+- Trace InfiniBand link flaps to the physical layer by swapping DAC cables, HCAs and switch ports.
+- Bring nodes that fall behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.
+- Recover nodes after facility events such as a cooling-unit failure and chassis power faults, using power drains and sled-by-sled testing.
+- Built `bad`, a Python terminal tool (~20,400 lines, 69 test files) that runs each step of a repair in one session: Slurm drain state, NHC, iDRAC event logs and reboots, and per-node repair notes. Its reports go to coworkers for failure tracing.
 
-### Research Computing Administrator (Freelance / Contract) · *Remote · 2023–2024*
+### Research Computing Administrator (Contract) · *Remote · 2023–2024*
 
-- Lead administrator and sole technical owner of the software environment for a genomics research group at Fox Chase Cancer Center, working directly with a small team of researchers.
-- Built and maintained a ~40-package bioinformatics stack using Spack, with manual source builds where Spack couldn't cover a tool; resolved dependency conflicts and build failures, often from incomplete upstream documentation.
-- Documented build procedures so environments could be rebuilt, and kept the stack current across upstream releases while also maintaining legacy versions of software for needed workflows.
+- Sole administrator of the software environment for a genomics research group at Fox Chase Cancer Center, working directly with the lead researcher.
+- Built and kept current a ~40-package bioinformatics stack with Spack, plus source builds where Spack fell short; documented every build so the environment could be rebuilt, and kept legacy versions for existing workflows.
 
 ## Selected Projects
-
-### bad — HPC Administration Terminal UI · *Python, curses, PTY, pytest*
-
-~20,400 lines across 115 modules, with 69 pytest files including PTY simulation for integration-level testing.
 
 ### Home Network / Infrastructure Automation · *Linux, WireGuard, iptables, Pi-hole, step-ca, Docker*
 
