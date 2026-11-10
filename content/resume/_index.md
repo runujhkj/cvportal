@@ -4,54 +4,59 @@ title: "Resume"
 
 # Jeffrey "Jack" Hannon Jr.
 
-Systems Automation · Python Tooling · Self-Hosted AI Infrastructure
+Systems Automation and Python Tooling
 
 {{% contact "location,phone,email,website" %}}
 
 ## Summary
 
-HPC systems technician at a university computing center since 2022 (four Slurm clusters, about 5,000 users) who builds the automation around the work: Python and Bash tooling for repair triage and outage reporting, config-driven deployment, and API integrations across a self-hosted LLM stack. Works from specs and tests, documents what gets built, and directs LLM coding agents routinely.
-
-## Skills
-
-**Automation & Development:** Python, Bash, pytest, Git, Flask, SQLite (FTS5), REST/SSE APIs, Docker, Ansible  
-**AI & LLM Tooling:** Ollama, OpenWebUI, ComfyUI, Faster-Whisper, WhisperKit, aider, Claude Code  
-**Systems & Networking:** Linux (Rocky, Debian, Ubuntu), Slurm, Lustre clients (LNet), iptables, WireGuard, DNS/DHCP (Pi-hole), Caddy, PKI/TLS (step-ca), SSO/OIDC  
-**Platforms:** Forgejo/GitHub Actions, cloud-init, QEMU/KVM, NVIDIA Container Toolkit
+HPC systems technician at Mississippi State University since 2022, and the one who writes the tooling around that work. Outside of work I build and run a self-hosted AI stack, mostly by directing LLM coding agents against specs and tests I write.
 
 ## Experience
 
-### Computer Specialist I — HPC Center · *Mississippi State University · 2022–Present*
+### Computer Specialist I, HPC Center *2022–Present* {.job}
 
-- Keep compute nodes in service across 4 Slurm clusters of 96 to 1,800 nodes (including 16 GPU and 16 bigmem nodes): diagnose and repair 10–20 hardware failures a month, from Slurm drain to Dell RMA closure, recording each node's failure cause and dated notes.
-- Built `bad`, a Python terminal tool (~20,400 lines, 69 pytest files) used for every repair: Slurm drain state, NHC, iDRAC/RACADM, InfiniBand fabric checks and per-node notes. It also generates the monthly unplanned-outage reports (incidents, node-minutes down, which outages were worked).
-- Bring nodes behind the firmware baseline up to date through OpenManage Enterprise, then run a regression test before returning them to service; diff BIOS settings against a known-good node.
+Mississippi State University, Starkville, MS
 
-### Research Computing Administrator (Contract) · *Remote · 2023–2024*
+- Diagnose and repair 10–20 failed nodes a month across four Slurm clusters (96 to 1,800 nodes), from draining the node to closing the Dell RMA, with notes on each one.
+- Wrote `bad`, a Python terminal tool I use for every repair. It pulls Slurm drain state, NHC results, iDRAC logs and InfiniBand checks into one place, and it generates the monthly unplanned-outage report.
+- Update firmware through OpenManage Enterprise when a node falls behind baseline, and run a regression test before it goes back into service.
 
-- Sole technical owner of a ~40-package bioinformatics stack for a genomics research group at Fox Chase Cancer Center, built with Spack and source builds despite incomplete upstream documentation.
-- Worked directly with the lead researcher on installs and troubleshooting; documented build procedures so environments could be rebuilt, and maintained legacy versions that existing workflows depended on.
+### Research Computing Administrator (Contract) *2023–2024* {.job}
 
-## Selected Projects
+Fox Chase Cancer Center, remote
 
-### locallm — Self-Hosted LLM and GenAI Stack · *Python, Docker, Ollama, ComfyUI, aider*
+- Set up and maintained about 40 bioinformatics packages for a genomics research group, mostly with Spack and by hand where Spack couldn't build something.
+- Worked directly with the lead researcher, wrote down how every build was done, and kept older versions around for workflows that still needed them.
 
-- Control plane that generates the Docker Compose stack from one config file through a service registry: adding a service is a single module, which also provides a typed API client for health checks, status, and scripting.
-- Hardware-aware tuning and benchmarking; image, music, and LoRA-training workflows.
-- Benchmark harness for local coding agents: a model on the GPU host builds iOS and Python apps via aider while another machine builds and tests over SSH, scored against specs and acceptance tests it cannot edit.
+## Projects
 
-### what — Local Live Transcription Service · *Python, Faster-Whisper (CUDA), WhisperKit, Electron, OBS*
+### locallm (self-hosted AI stack)
 
-- Engine-independent transcription schema streamed over SSE to OBS captions and a live avatar pipeline; per-stream ASR workers, word-level replay and corrections. Preparing a GPL-3.0 release.
+- Generates the whole Docker Compose stack from one config file. Each service is a single module that also gives it a typed API client for health checks and scripting.
+- Includes hardware-aware tuning and benchmarking, plus image, music and LoRA-training workflows.
+- Has a benchmark where local models build iOS and Python apps through aider, scored against specs and acceptance tests the model can't edit.
 
-### vplan — Home Network Automation and SSO · *Bash, Python, iptables, WireGuard, Authelia*
+### what (live transcription)
 
-- Inventory-driven DNS/DHCP, per-device VPN bypass, WireGuard remote access, and Authelia SSO (forward-auth and OIDC) across self-hosted services, with TLS from a private ACME CA.
+- Transcribes live audio locally with Faster-Whisper and WhisperKit and streams it to OBS captions and a live avatar, with word-level replay and corrections. Being prepared for a GPL-3.0 release.
 
-### langquiz — Multilingual Vocabulary Web App · *Python, Flask, SQLite (FTS5), Docker*
+### vplan (home network)
 
-20 languages from Wiktionary and Tatoeba data, SM-2 spaced repetition, self-hosted PWA.
+- Manages my home network's DNS, DHCP, per-device VPN bypass, WireGuard remote access and Authelia single sign-on, with TLS from a private certificate authority.
 
-## Education / Certifications
+### langquiz (vocabulary app)
 
-**B.S. Computer Science**, Mississippi State University, 2021 · **CompTIA A+**, 2025
+- Self-hosted Flask app for vocabulary practice in 20 languages, with spaced repetition.
+
+## Skills
+
+**Languages and tools:** Python, Bash, Git, pytest, Flask, SQLite, REST and SSE APIs, Docker, Ansible  
+**AI tooling:** Ollama, OpenWebUI, ComfyUI, Faster-Whisper, WhisperKit, aider, Claude Code  
+**Systems:** Linux (Rocky, Debian, Ubuntu), Slurm, Lustre clients, iptables, WireGuard, Pi-hole, Caddy, step-ca  
+**Platforms:** Forgejo and GitHub Actions, cloud-init, QEMU/KVM, NVIDIA Container Toolkit
+
+## Education
+
+**B.S. Computer Science**, Mississippi State University, 2021  
+**CompTIA A+**, 2025
