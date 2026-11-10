@@ -2,7 +2,7 @@
 """Cover letters and an application tracker, all under the gitignored private/applications/.
 
   letters.py new COMPANY TITLE   make private/applications/<company>/<title>/ with job.toml and letter.md
-  letters.py build [FOLDER...]   build each letter.md into cover-letter.pdf beside it, styled like the resumes
+  letters.py build [FOLDER...]   build each letter.md into <Name>-Cover-Letter.pdf beside it, styled like the resumes
   letters.py list                print the tracker and write private/applications/INDEX.md
 
 letter.md holds only the body you paste in. The header (name, address, phone, email),
@@ -26,6 +26,11 @@ HTML2PDF = ROOT / "build" / "html2pdf"
 CSS = [ROOT / "static" / "resume" / "resume.css", ROOT / "scripts" / "letter.css"]
 STATUSES = ("drafted", "applied", "interviewing", "offer", "rejected", "withdrawn")
 BODY_MARKER = "<!-- Paste the body of the letter below this line. -->"
+
+
+def pdf_name():
+    signature = load_toml(ROOT / "data" / "contact.toml").get("signature", "Cover Letter")
+    return signature.replace(".", "").replace(" ", "-") + "-Cover-Letter.pdf"
 
 JOB_TEMPLATE = '''# One application. Edit freely; `make applications` reads this file.
 company = "{company}"
@@ -129,8 +134,8 @@ def cmd_build(folders):
             css = [arg for c in CSS for arg in ("--css", str(c))]
             subprocess.run(["pandoc", str(src), "-o", str(html), "--from", "markdown", "--standalone",
                             "--embed-resources", *css, "-M", "pagetitle=Cover letter"], check=True)
-            subprocess.run([str(HTML2PDF), str(html), str(folder / "cover-letter.pdf"), "0.9", "1"], check=True)
-            print(f"built {rel(folder)}/cover-letter.pdf")
+            subprocess.run([str(HTML2PDF), str(html), str(folder / pdf_name()), "0.9", "1"], check=True)
+            print(f"built {rel(folder)}/{pdf_name()}")
             built += 1
     cmd_list(quiet=True)
     return built
@@ -140,7 +145,7 @@ def cmd_list(quiet=False):
     rows = []
     for folder in jobs():
         job = load_toml(folder / "job.toml")
-        pdf = folder / "cover-letter.pdf"
+        pdf = folder / pdf_name()
         rows.append((str(job.get("created", "")), str(job.get("applied", "")) or "-", job.get("status", ""),
                      job.get("company", ""), job.get("title", ""), job.get("resume", "") or "-",
                      "yes" if pdf.exists() else "no", str(folder.relative_to(APPS))))

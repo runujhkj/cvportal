@@ -36,13 +36,18 @@ make resumes
 
 `scripts/build_resumes.sh` runs pandoc to standalone HTML with
 `static/resume/resume.css`, then `scripts/html2pdf.swift` (compiled once to
-`build/html2pdf`) prints it to a US Letter PDF named `resume-<variant>.pdf`:
+`build/html2pdf`) prints it to a US Letter PDF. Every PDF is named after you
+(`Jeffrey-Hannon-Jr-Resume.pdf`, from `signature` in `data/contact.toml`), so each
+variant gets its own folder:
 
 | Variant | Source | PDF |
 |---|---|---|
-| automation (site "Resume") | `content/resume/_index.md` | `static/resume/resume-automation.pdf` |
-| hpc | `content/resume-hpc/_index.md` | `static/resume/resume-hpc.pdf` |
-| any private variant | `private/resume-<variant>.md` | `private/resume-<variant>.pdf` |
+| automation (site "Resume") | `content/resume/_index.md` | `static/resume/automation/` |
+| hpc | `content/resume-hpc/_index.md` | `static/resume/hpc/` |
+| any private variant | `private/resume-<variant>.md` | `private/resumes/<variant>/` |
+
+The look (Charter, embedded in the PDF so it shows the same everywhere, with a navy
+accent) is in `static/resume/resume.css`; cover letters use it too.
 
 Commit the regenerated public PDFs; the site links to them. Nothing under
 `private/` is tracked or published.
@@ -61,7 +66,7 @@ address, put it in the gitignored `private/contact.toml` (`address = "..."`) and
 make share-resumes
 ```
 
-Every variant is built with the address on its own line into `private/share/`,
+Every variant is built with the address on its own line into `private/share/<variant>/`,
 which is gitignored. The site and `make resumes` never include it.
 
 ## Cover Letters and Applications
@@ -69,7 +74,7 @@ Everything here lives in `private/applications/`, which is gitignored.
 
 ```bash
 make letter COMPANY="Acme" TITLE="Data Center Technician"   # new folder: private/applications/acme/data-center-technician/
-make letters                                                # build every letter.md into cover-letter.pdf
+make letters                                                # build every letter.md into <Name>-Cover-Letter.pdf
 make applications                                           # tracker table; also writes private/applications/INDEX.md
 ```
 

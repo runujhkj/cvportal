@@ -9,9 +9,15 @@ html, body {
   padding: 0;
 }
 
+/* Charter: on every Mac as Charter, on Linux as Bitstream Charter or Charis SIL (its
+   free descendant); the PDF embeds it, so readers see it whatever their system. */
+:root {
+  --accent: #1f3a5f;       /* dark navy: name and section headings */
+  --accent-rule: #c7d2e0;  /* the line under each section heading */
+}
+
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-               "Helvetica Neue", Arial, sans-serif;
+  font-family: Charter, "Bitstream Charter", "Charis SIL", Cambria, Georgia, serif;
   font-size: 10pt;
   line-height: 1.25;
   color: #111827;
@@ -33,6 +39,7 @@ section {
 /* Name + header */
 
 h1 {
+  color: var(--accent);
   font-size: 20pt;
   margin: 0 0 0.1rem;
 }
@@ -55,10 +62,11 @@ h1 {
 /* Headings */
 
 h2 {
+  color: var(--accent);
   font-size: 12pt;
   margin: 0.75rem 0 0.2rem;
   padding-bottom: 0.1rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--accent-rule);
 }
 
 h3 {
@@ -135,5 +143,13 @@ h3.job em {
 h3.job + p {
   margin-top: 0;
   color: #4b5563;
+  font-style: italic;
+}
+
+/* Tool names like `bad`: italic in the body face rather than a code font */
+
+code {
+  font-family: inherit;
+  font-size: inherit;
   font-style: italic;
 }
