@@ -58,5 +58,5 @@ Fox Chase Cancer Center, remote
 
 ## Education
 
-**B.S. Computer Science**, Mississippi State University, 2021  
+**B.S. Computer Science**, Mississippi State University  
 **CompTIA A+**, 2025
