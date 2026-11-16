@@ -29,4 +29,4 @@ repo_status: "Private; in daily use as the home network's control plane."
 
 ### Tunnel reliability
 
-{{< tunnel-chart >}}Weekly figures from the client watchdog, which checks the tunnel every 10 seconds while a Mac is away from home and restarts it when it stalls. Hover over a bar for that week's hours and availability. Before an ISP router change in early October, it was restarting the tunnel about 11 times an hour.{{< /tunnel-chart >}}
+{{< tunnel-chart >}}Weekly figures (weeks with at least 10 hours on the tunnel) from the client watchdog, which checks the tunnel every 10 seconds while a Mac is away from home and restarts it when it stalls. Hover over a bar for that week's hours and availability. Before an ISP router change in early October, it was restarting the tunnel about 11 times an hour.{{< /tunnel-chart >}}

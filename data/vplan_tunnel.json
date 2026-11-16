@@ -39,14 +39,6 @@
       "available_pct": 99.53,
       "stalled_min_per_hour": 0.28,
       "restarts_per_hour": 0.45
-    },
-    {
-      "week_of": "Nov 16",
-      "label": "Nov 16–16",
-      "hours": 1.8,
-      "available_pct": 99.84,
-      "stalled_min_per_hour": 0.09,
-      "restarts_per_hour": 0.0
     }
   ]
 }

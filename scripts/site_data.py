@@ -19,6 +19,7 @@ DATA = ROOT / "data"
 TUNNEL_STATS = Path(os.environ.get(
     "VPLAN_WD_STATS", Path.home() / "Library" / "Application Support" / "vplan" / "wg-watchdog-stats.tsv"))
 CHECK_SECONDS = 10  # the watchdog checks the tunnel every 10 s while away from home
+MIN_WEEK_HOURS = 10  # a week with less time on the tunnel is too small a sample to chart
 
 
 def last_commit(facts):
@@ -62,10 +63,18 @@ def vplan_tunnel():
         if not checks:
             continue
         hours = checks * CHECK_SECONDS / 3600
+        if hours < MIN_WEEK_HOURS:
+            continue
+        first, last = w["first"], w["last"]
+        if first == last:
+            label = f"{first:%b} {first.day}"
+        elif first.month == last.month:
+            label = f"{first:%b} {first.day}–{last.day}"
+        else:
+            label = f"{first:%b} {first.day}–{last:%b} {last.day}"
         rows.append({
             "week_of": f"{w['first']:%b} {w['first'].day}",
-            "label": f"{w['first']:%b} {w['first'].day}–{w['last'].day}" if w["first"].month == w["last"].month
-                     else f"{w['first']:%b} {w['first'].day}–{w['last']:%b} {w['last'].day}",
+            "label": label,
             "hours": round(hours, 1),
             "available_pct": round(w["ok"] * 100 / checks, 2),
             "stalled_min_per_hour": round(w["stalled"] * CHECK_SECONDS / 60 / hours, 2),
