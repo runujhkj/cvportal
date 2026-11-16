@@ -1,7 +1,6 @@
 ---
 title: "taptap — Generative Music Engine"
 aliases: ["/projects/drum-controls/"]
-forgejo_repo: "drumcontrols"
 status: "Paused"
 summary: "A Python app that turns drum-pad or keyboard input into stochastic music via MIDI and FluidSynth, producing structured-random melody rather than literal drum sounds. Its core now runs headless, separate from the PySide6 GUI."
 tech: ["Python", "PySide6", "MIDI", "FluidSynth", "TOML"]
