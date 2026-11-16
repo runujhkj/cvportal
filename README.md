@@ -91,7 +91,7 @@ the posting link, a named recipient, and notes. Name and signature come from
 make scan
 ```
 
-Lists repos under `~/projects` with recent activity, authorship, and whether a
+Lists repos under `~/projects` (and the app projects locallm built, in `~/projects/locallm/data/apps`) with recent activity, authorship, and whether a
 project page exists or has fallen behind the repo. With a Forgejo token (see
 below) it also lists Forgejo repos that are not cloned locally. A page whose file name differs
 from its repo sets `forgejo_repo:` in front matter.

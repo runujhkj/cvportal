@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Collect mechanical facts about project repos into facts/ (untracked, local only).
 
-Sources: git repos under PROJECTS_DIR (default ~/projects) and, when a Forgejo
+Sources: git repos under PROJECTS_DIR (default ~/projects) and the app projects locallm
+built, in PROJECTS_DIR/locallm/data/apps; and, when a Forgejo
 token is available (see scripts/forgejo.py), the Forgejo instance, including
 repos that are not cloned locally. Writes facts/<repo>.json and facts/DIGEST.md.
 
@@ -26,6 +27,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PAGES_DIR = REPO_ROOT / "content" / "projects"
 OUT_DIR = REPO_ROOT / "facts"
 PROJECTS_DIR = Path(os.environ.get("PROJECTS_DIR", "~/projects")).expanduser()
+# App projects locallm built live inside its data root (locallm docs/places.md).
+LOCALLM_APPS_DIR = PROJECTS_DIR / "locallm" / "data" / "apps"
 
 LANGS = {
     ".py": "Python", ".sh": "Shell", ".bash": "Shell", ".zsh": "Shell", ".swift": "Swift",
@@ -229,13 +232,18 @@ def digest(all_facts):
     return "\n".join(out) + "\n"
 
 
+def local_repos():
+    roots = [d for d in (PROJECTS_DIR, LOCALLM_APPS_DIR) if d.is_dir()]
+    return sorted((p for root in roots for p in root.iterdir() if (p / ".git").exists()), key=lambda p: p.name.lower())
+
+
 def main():
     pages = page_map()
     me = own_authors()
     OUT_DIR.mkdir(exist_ok=True)
     all_facts = []
 
-    for repo in sorted(p for p in PROJECTS_DIR.iterdir() if (p / ".git").exists()):
+    for repo in local_repos():
         if repo.resolve() == REPO_ROOT:
             continue
         print(f"  local    {repo.name}", flush=True)

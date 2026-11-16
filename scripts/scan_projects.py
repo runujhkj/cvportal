@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Report local and Forgejo repos that are candidates for new or updated cvportal pages.
 
-Env: PROJECTS_DIR (default ~/projects), STALE_DAYS (default 14),
+Env: PROJECTS_DIR (default ~/projects; its locallm/data/apps is scanned too), STALE_DAYS (default 14),
 FORGEJO_URL / FORGEJO_USER. The Forgejo section runs only if a token is found (scripts/forgejo.py).
 """
 
@@ -18,6 +18,8 @@ import forgejo  # noqa: E402
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAGES_DIR = REPO_ROOT / "content" / "projects"
 PROJECTS_DIR = Path(os.environ.get("PROJECTS_DIR", "~/projects")).expanduser()
+# App projects locallm built live inside its data root (locallm docs/places.md).
+LOCALLM_APPS_DIR = PROJECTS_DIR / "locallm" / "data" / "apps"
 STALE_DAYS = int(os.environ.get("STALE_DAYS", "14"))
 
 
@@ -43,7 +45,8 @@ def days_between(a, b):
 
 def local_rows(pages, me):
     rows = []
-    for d in sorted(p for p in PROJECTS_DIR.iterdir() if (p / ".git").exists()):
+    roots = [r for r in (PROJECTS_DIR, LOCALLM_APPS_DIR) if r.is_dir()]
+    for d in sorted((p for r in roots for p in r.iterdir() if (p / ".git").exists()), key=lambda p: p.name.lower()):
         if d.resolve() == REPO_ROOT:
             continue
         last = git(d, "log", "-1", "--format=%cs")
