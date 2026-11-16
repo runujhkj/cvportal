@@ -35,7 +35,7 @@ Fox Chase Cancer Center, remote
 
 - Generates the whole Docker Compose stack from one config file. Each service is a single module that also gives it a typed API client for health checks and scripting.
 - Includes hardware-aware tuning and benchmarking, plus image, music and LoRA-training workflows.
-- Has a benchmark where local models build iOS and Python apps through aider, scored against specs and acceptance tests the model can't edit.
+- Has a coding mode in chat that works on its own branch under fixed rules. On a ten-task benchmark it went from 11 of 18 attempts solved to 49 of 50 as the rules were added.
 
 ### what (live transcription)
 

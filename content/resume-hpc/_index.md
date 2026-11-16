@@ -45,7 +45,7 @@ Fox Chase Cancer Center, remote
 ### Home network *Personal* {.job}
 
 - vplan manages my home network's DNS and DHCP from one config file, along with WireGuard remote access and single sign-on.
-- stepfam runs a private certificate authority (step-ca) that issues and deploys TLS certificates to my self-hosted services.
+- It also runs a private certificate authority (step-ca) that issues and deploys TLS certificates to my self-hosted services.
 
 ## Education
 
