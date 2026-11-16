@@ -1,0 +1,44 @@
+{
+  "weeks": [
+    {
+      "week_of": "Oct 12",
+      "label": "Oct 12–18",
+      "hours": 105.2,
+      "available_pct": 98.15,
+      "stalled_min_per_hour": 1.11,
+      "restarts_per_hour": 2.67
+    },
+    {
+      "week_of": "Oct 19",
+      "label": "Oct 19–23",
+      "hours": 34.2,
+      "available_pct": 97.53,
+      "stalled_min_per_hour": 1.48,
+      "restarts_per_hour": 3.83
+    },
+    {
+      "week_of": "Oct 26",
+      "label": "Oct 26–Nov 1",
+      "hours": 27.8,
+      "available_pct": 97.95,
+      "stalled_min_per_hour": 1.23,
+      "restarts_per_hour": 2.81
+    },
+    {
+      "week_of": "Nov 2",
+      "label": "Nov 2–8",
+      "hours": 67.0,
+      "available_pct": 97.9,
+      "stalled_min_per_hour": 1.26,
+      "restarts_per_hour": 2.73
+    },
+    {
+      "week_of": "Nov 9",
+      "label": "Nov 9–13",
+      "hours": 35.6,
+      "available_pct": 99.53,
+      "stalled_min_per_hour": 0.28,
+      "restarts_per_hour": 0.45
+    }
+  ]
+}

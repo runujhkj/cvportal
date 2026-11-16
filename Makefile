@@ -1,4 +1,4 @@
-.PHONY: resumes share-resumes letter letters applications serve scan facts forgejo-check
+.PHONY: resumes share-resumes letter letters applications serve scan facts site-data forgejo-check
 
 HTML2PDF := build/html2pdf
 
@@ -32,6 +32,11 @@ scan:
 
 facts:
 	python3 scripts/collect_facts.py
+
+# The small public data files the site shows (project last-active dates, vplan tunnel chart).
+# Run `make facts` first; commit the files it writes under data/.
+site-data:
+	python3 scripts/site_data.py
 
 forgejo-check:
 	python3 scripts/forgejo.py

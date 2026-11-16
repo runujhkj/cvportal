@@ -9,7 +9,7 @@ approach: "A dual-NIC Debian router runs iptables NAT and mangle rules with poli
 current:
   - "Per-device VPN bypass from one source of truth, with a guard timer that reapplies rules after NordVPN reconnects, plus named services that skip the VPN for every device."
   - "WireGuard remote access with three peer scopes (admin, web-only, and named host:port pairs), end dates, and a default-deny firewall toward the home network; split DNS, MSS clamping, and a DDNS updater."
-  - "A recurring tunnel stall traced to handshake replies lost on the way back; client guards now change port when a key renewal goes unanswered. In the latest tracked week the tunnel was available 99.6% of the time, with restarts down from about 11 an hour in early October to 0.34."
+  - "A recurring tunnel stall traced to handshake replies lost on the way back; client guards now change port when a key renewal goes unanswered. In the week of Nov 9–13 the tunnel was available 99.5% of the time, and watchdog restarts fell from about 3 an hour to under 0.5."
   - "Prometheus, Grafana, and Alertmanager with probes of every site and app, alerts to phones, and a status screen."
   - "Services moved to a new host one at a time, each with about a minute of downtime and a rollback kept."
   - "Web portal showing ISP vs VPN upstream health, speed samples, VPN server location, bypass state, tunnel reliability, and config sync drift, plus a DHCP device-enrollment page and a one-tab workspace that keeps the self-hosted apps open side by side."
@@ -26,3 +26,7 @@ next:
   - "Machine secrets in Ansible Vault, and SSH certificates from the private CA."
 repo_status: "Private; in daily use as the home network's control plane."
 ---
+
+### Tunnel reliability
+
+{{< tunnel-chart >}}Weekly figures from the client watchdog, which checks the tunnel every 10 seconds while a Mac is away from home and restarts it when it stalls. Hover over a bar for that week's hours and availability. Before an ISP router change in early October, it was restarting the tunnel about 11 times an hour.{{< /tunnel-chart >}}

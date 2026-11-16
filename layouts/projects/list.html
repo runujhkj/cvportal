@@ -58,6 +58,7 @@
       data-tech="{{ delimit (.Params.tech | default slice) "," }}">
       <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       {{ partial "status-badge.html" $status }}
+      {{ with partial "last-active.html" . }}<p class="meta last-active">{{ . }}</p>{{ end }}
       {{ with .Params.built_by }}{{ with $.Site.GetPage (printf "/projects/%s" .) }}<p class="meta built-by-card">Built with {{ index (split .Title " — ") 0 }}</p>{{ end }}{{ end }}
       {{ with .Params.merged_into }}{{ with $.Site.GetPage (printf "/projects/%s" .) }}<p class="meta built-by-card">Now part of {{ index (split .Title " — ") 0 }}</p>{{ end }}{{ end }}
       {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}

@@ -113,6 +113,19 @@ variable, or the macOS Keychain item `cvportal-forgejo`. Store it with
 `security add-generic-password -U -a thefed -s cvportal-forgejo -w` (it prompts
 for the token) and test it with `make forgejo-check`.
 
+## Site Data
+```bash
+make site-data
+```
+
+Writes the two small data files the site shows, from local sources, and
+nothing else: `data/project_activity.json` (each project page's last commit
+date, from `facts/`, shown as "Last active" on cards and pages) and
+`data/vplan_tunnel.json` (weekly WireGuard tunnel reliability from vplan's
+watchdog tally, drawn by the `tunnel-chart` shortcode on the vplan page). Only
+page slugs, dates and counts go in them. Run `make facts` first, then commit
+the files.
+
 ## Project Screenshots and Recordings
 
 Project pages automatically show supported screenshots and short recordings

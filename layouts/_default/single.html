@@ -4,6 +4,7 @@
 
   <p class="meta">
     {{ partial "status-badge.html" .Params.status }}
+    {{ with partial "last-active.html" . }}<span class="last-active">{{ . }}</span>{{ end }}
     {{ with .Params.tech }}
       <span class="meta-tech"><strong>Tech:</strong> {{ delimit . ", " }}</span>
     {{ end }}

@@ -1,0 +1,4 @@
+{{- /* "Last active Nov 2026" from data/project_activity.json (scripts/site_data.py); nothing if the page has no repo. */ -}}
+{{- with index site.Data.project_activity .File.ContentBaseName -}}
+Last active {{ (time.AsTime .).Format "Jan 2006" }}
+{{- end -}}

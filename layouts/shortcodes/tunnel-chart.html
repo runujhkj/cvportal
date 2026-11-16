@@ -1,0 +1,60 @@
+{{- /* Weekly WireGuard tunnel reliability from data/vplan_tunnel.json (scripts/site_data.py):
+       two small bar charts on their own zero-based scales, plus the numbers as a table. */ -}}
+{{- $weeks := site.Data.vplan_tunnel.weeks -}}
+{{- $charts := slice
+      (dict "key" "stalled_min_per_hour" "title" "Minutes stalled per hour on the tunnel" "unit" "min/h")
+      (dict "key" "restarts_per_hour" "title" "Watchdog restarts per hour" "unit" "/h") -}}
+{{- $w := 320.0 -}}{{- $h := 170.0 -}}{{- $left := 34.0 -}}{{- $right := 6.0 -}}{{- $top := 14.0 -}}{{- $bottom := 26.0 -}}
+{{- $plotW := sub $w (add $left $right) -}}{{- $plotH := sub $h (add $top $bottom) -}}
+{{- $band := div $plotW (len $weeks) -}}{{- $barW := math.Min 26.0 (mul $band 0.5) -}}
+<figure class="tunnel-chart">
+  <div class="tunnel-chart-panels">
+  {{- range $charts }}
+    {{- $key := .key -}}{{- $unit := .unit -}}
+    {{- $max := 0.0 -}}
+    {{- range $weeks }}{{ $max = math.Max $max (index . $key) }}{{ end -}}
+    {{- $max = math.Max 1.0 (math.Ceil $max) -}}
+    <div class="tunnel-chart-panel">
+      <p class="tunnel-chart-title">{{ .title }}</p>
+      <svg viewBox="0 0 {{ $w }} {{ $h }}" role="img" aria-label="{{ .title }}, by week">
+        {{- range slice 0.0 0.5 1.0 }}
+          {{- $y := sub (add $top $plotH) (mul $plotH .) }}
+          <line class="grid" x1="{{ $left }}" x2="{{ sub $w $right }}" y1="{{ $y }}" y2="{{ $y }}"/>
+          <text class="axis" x="{{ sub $left 6 }}" y="{{ add $y 3.5 }}" text-anchor="end">{{ lang.FormatNumber 1 (mul $max .) }}</text>
+        {{- end }}
+        {{- range $i, $wk := $weeks }}
+          {{- $v := index $wk $key -}}
+          {{- $bh := mul $plotH (div $v $max) -}}
+          {{- $x := add $left (add (mul $band $i) (div (sub $band $barW) 2)) -}}
+          {{- $base := add $top $plotH -}}
+          {{- $r := math.Min 4.0 (div $bh 1) -}}
+          <g class="bar">
+            <title>Week of {{ $wk.week_of }}: {{ $v }} {{ $unit }} ({{ $wk.hours }} h on the tunnel, {{ $wk.available_pct }}% available)</title>
+            <rect class="hit" x="{{ add $left (mul $band $i) }}" y="{{ $top }}" width="{{ $band }}" height="{{ $plotH }}"/>
+            {{- if gt $bh 0.0 }}
+            <path d="M{{ $x }},{{ $base }} V{{ add (sub $base $bh) $r }} Q{{ $x }},{{ sub $base $bh }} {{ add $x $r }},{{ sub $base $bh }} H{{ sub (add $x $barW) $r }} Q{{ add $x $barW }},{{ sub $base $bh }} {{ add $x $barW }},{{ add (sub $base $bh) $r }} V{{ $base }} Z"/>
+            {{- end }}
+            {{- if or (eq $i 0) (eq $i (sub (len $weeks) 1)) }}
+            <text class="value" x="{{ add $x (div $barW 2) }}" y="{{ sub (sub $base $bh) 4 }}" text-anchor="middle">{{ $v }}</text>
+            {{- end }}
+            <text class="axis" x="{{ add $x (div $barW 2) }}" y="{{ sub $h 8 }}" text-anchor="middle">{{ $wk.week_of }}</text>
+          </g>
+        {{- end }}
+        <line class="baseline" x1="{{ $left }}" x2="{{ sub $w $right }}" y1="{{ add $top $plotH }}" y2="{{ add $top $plotH }}"/>
+      </svg>
+    </div>
+  {{- end }}
+  </div>
+  <figcaption>{{ .Inner | markdownify }}</figcaption>
+  <details>
+    <summary>Show the numbers</summary>
+    <table>
+      <thead><tr><th>Week</th><th>Hours on the tunnel</th><th>Available</th><th>Stalled min/h</th><th>Restarts/h</th></tr></thead>
+      <tbody>
+      {{- range $weeks }}
+        <tr><td>{{ .label }}</td><td>{{ .hours }}</td><td>{{ .available_pct }}%</td><td>{{ .stalled_min_per_hour }}</td><td>{{ .restarts_per_hour }}</td></tr>
+      {{- end }}
+      </tbody>
+    </table>
+  </details>
+</figure>

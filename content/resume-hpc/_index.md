@@ -37,7 +37,7 @@ Fox Chase Cancer Center, remote
 
 **HPC and hardware:** Slurm, Lustre clients, NHC, Dell PowerEdge, iDRAC/RACADM, OpenManage Enterprise, InfiniBand cabling, BIOS and firmware  
 **Linux:** Rocky, Debian, Ubuntu  
-**Scripting:** Python, Bash, Ansible, Git, pytest, ReFrame  
+**Scripting:** Python, Bash, Git, pytest, ReFrame  
 **Home lab:** DNS/DHCP, iptables, WireGuard, step-ca, Docker, QEMU/KVM
 
 ## Projects

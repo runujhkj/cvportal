@@ -457,3 +457,87 @@ a:hover {
   font-style: italic;
   color: var(--muted);
 }
+
+/* Last-active date on project cards and pages */
+
+.last-active {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Tunnel reliability chart (layouts/shortcodes/tunnel-chart.html) */
+
+.tunnel-chart {
+  margin: 1.5rem 0;
+}
+
+.tunnel-chart-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.tunnel-chart-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.75rem 0.25rem;
+}
+
+.tunnel-chart-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.tunnel-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tunnel-chart .grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.tunnel-chart .baseline {
+  stroke: var(--muted);
+  stroke-width: 1;
+}
+
+.tunnel-chart .bar path {
+  fill: #0284c7;
+}
+
+.tunnel-chart .bar:hover path {
+  fill: #0ea5e9;
+}
+
+.tunnel-chart .hit {
+  fill: transparent;
+}
+
+.tunnel-chart text {
+  font-family: var(--font-sans);
+  font-size: 10px;
+}
+
+.tunnel-chart .axis {
+  fill: var(--muted);
+}
+
+.tunnel-chart .value {
+  fill: var(--text);
+}
+
+.tunnel-chart figcaption {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.tunnel-chart details {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}

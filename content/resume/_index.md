@@ -51,7 +51,7 @@ Fox Chase Cancer Center, remote
 
 ## Skills
 
-**Languages and tools:** Python, Bash, Git, pytest, Flask, SQLite, REST and SSE APIs, Docker, Ansible  
+**Languages and tools:** Python, Bash, Git, pytest, Flask, SQLite, REST and SSE APIs, Docker  
 **AI tooling:** Ollama, OpenWebUI, ComfyUI, Faster-Whisper, WhisperKit, aider, Claude Code  
 **Systems:** Linux (Rocky, Debian, Ubuntu), Slurm, Lustre clients, iptables, WireGuard, Pi-hole, Caddy, step-ca  
 **Platforms:** Forgejo and GitHub Actions, cloud-init, QEMU/KVM, NVIDIA Container Toolkit
