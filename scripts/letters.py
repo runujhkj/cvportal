@@ -43,6 +43,7 @@ recipient = ""            # a named person, if the posting gives one
 greeting = "Dear Hiring Manager,"
 letter_date = ""          # date printed on the letter; empty means the day it is built
 contact = "location,phone,email"   # fields from data/contact.toml under your name
+location = ""             # overrides data/contact.toml's location for this letter only, e.g. "Starkville, MS"
 street_address = false    # true adds the street address from private/contact.toml, if a posting asks for it
 notes = ""
 '''
@@ -87,6 +88,8 @@ def cmd_new(company, title):
 def letter_markdown(folder):
     job = load_toml(folder / "job.toml")
     contact = load_toml(ROOT / "data" / "contact.toml")
+    if job.get("location"):
+        contact["location"] = job["location"]
     address = load_toml(PRIVATE_CONTACT).get("address", "").strip() if job.get("street_address") else ""
     if "FILL IN" in address:
         address = ""
